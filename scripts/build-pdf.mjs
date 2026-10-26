@@ -851,72 +851,62 @@ const htmlContent = `<!DOCTYPE html>
     <div>
       <div class="header-bar">
         <span class="brand">🌲 BIVOUAC SAUVAGE</span>
-        <span class="meta">Partie 8 : Utilisation de l'IA & Préparation à l'Oral</span>
+        <span class="meta">Partie 8 : Utilisation de l'IA</span>
       </div>
 
       <h2>8. Utilisation de l'IA (Transparence & Recul Critique)</h2>
-      <p style="font-size: 8.5pt;">
-        Conformément aux consignes du module, l'IA a été mobilisée comme un accélérateur de prototypage, tout en conservant une maîtrise totale et une relecture critique de chaque ligne de code produite.
+      <p style="font-size: 9pt; margin-bottom: 12px; line-height: 1.5;">
+        Conformément aux consignes du module, l'intelligence artificielle a été mobilisée comme un outil d'assistance et d'accélération au prototypage, tout en maintenant une maîtrise technique intégrale et une relecture critique systématique de chaque bloc de code produit.
       </p>
 
-      <table>
+      <table style="margin-top: 10px; margin-bottom: 20px;">
         <tr>
-          <th style="width: 25%;">Outil utilisé</th>
-          <th style="width: 35%;">Ce que nous lui avons fait produire</th>
-          <th>Ce que nous avons corrigé, adapté ou refusé</th>
+          <th style="width: 25%; padding: 8px;">Outils utilisés</th>
+          <th style="width: 35%; padding: 8px;">Ce que nous leur avons fait produire</th>
+          <th style="padding: 8px;">Ce que nous avons corrigé ou refusé</th>
         </tr>
         <tr>
-          <td><strong>Antigravity (Pair Programming IA)</strong></td>
-          <td>
-            • Génération du jeu de données réaliste de 12 hébergements en JSON.<br>
-            • Squelette initial des composants React & des stories Storybook.<br>
-            • Partials de calculs SASS pour les éco-badges.
+          <td style="padding: 10px 8px;">
+            <strong>Antigravity</strong><br>
+            <span style="font-size: 7.5pt; color: #536257;">Assistant de code & agent pair programming</span>
           </td>
-          <td>
-            • <strong>Refusé :</strong> L'utilisation de classes Tailwind dynamiques interpolées (ex: <code>bg-\${col}-500</code>), formellement interdites par le sujet.<br>
-            • <strong>Corrigé :</strong> Migration des fonctions de couleur dépréciées (<code>darken()</code>) vers la spécification Dart Sass 3.0 (<code>color.adjust()</code>).<br>
-            • <strong>Remplacé :</strong> Les labels de formulaires génériques par des étiquettes complètes avec gestion d'erreurs accessible ARIA.
+          <td style="padding: 10px 8px; font-size: 8.5pt;">
+            • Génération de la base du jeu de données réaliste des 12 hébergements en JSON.<br><br>
+            • Squelette initial des composants React et de leurs stories Storybook.<br><br>
+            • Proposition de partials SASS pour les éco-badges et mixins d'échelle.
+          </td>
+          <td style="padding: 10px 8px; font-size: 8.5pt;">
+            • <strong>Refusé :</strong> La concaténation de classes dynamiques Tailwind (<code>bg-\${color}-500</code>), formellement interdite par la feuille de projet. Toutes les classes sont écrites en entier.<br><br>
+            • <strong>Refusé :</strong> La duplication de l'état React pour les calculs de nuits et de devis. Remplacement par des valeurs dérivées calculées à la volée.<br><br>
+            • <strong>Corrigé :</strong> Migration des fonctions Sass obsolètes (<code>map-get</code>, <code>darken</code>) vers les modules natifs Dart Sass 3.0 (<code>map.get</code>, <code>color.adjust</code>).<br><br>
+            • <strong>Corrigé :</strong> Remplacement des formulaires basiques par des champs accessibles avec étiquettes explicites, aides et validation en temps réel.
           </td>
         </tr>
         <tr>
-          <td><strong>Lighthouse CLI & Axe-Core</strong></td>
-          <td>Audit automatisé de contraste, performance, SEO et accessibilité.</td>
-          <td>Ajustement manuel des nuances chromatiques du thème Tailwind 4 pour garantir la conformité WCAG AA (≥ 4.5:1) sur tous les états.</td>
+          <td style="padding: 10px 8px;">
+            <strong>Lighthouse CLI & Axe-Core</strong><br>
+            <span style="font-size: 7.5pt; color: #536257;">Moteurs d'audit automatisés</span>
+          </td>
+          <td style="padding: 10px 8px; font-size: 8.5pt;">
+            • Rapport automatisé des performances, du SEO, des bonnes pratiques et de l'accessibilité.
+          </td>
+          <td style="padding: 10px 8px; font-size: 8.5pt;">
+            • <strong>Corrigé :</strong> Ajustement manuel des ratios de contraste de la palette <code>@theme</code> pour garantir la conformité WCAG AA (≥ 4.5:1) sur tous les états.<br><br>
+            • <strong>Corrigé :</strong> Ajout du rôle <code>role="img"</code> sur les conteneurs d'étoiles d'avis et correction du nom accessible du logo.
+          </td>
         </tr>
       </table>
 
-      <h2 style="margin-top: 14px;">Analyse Critique des Décisions Techniques</h2>
-      <div class="grid-2">
-        <div class="card-box" style="margin-bottom: 6px;">
-          <h3 style="color: #2D5A43;">1. Refus de la concaténation de classes Tailwind</h3>
-          <p style="font-size: 8pt; margin: 0;">
-            L'IA a spontanément proposé des chaînes interpolées (<code>bg-\${color}-500</code>). J'ai systématiquement refusé ce pattern pour deux raisons majeures : d'une part, le scanner statique de Tailwind v4 ne peut pas détecter les classes fragmentées ; d'autre part, la consigne du projet l'interdit expressément. Chaque classe est écrite en toutes lettres dans des maps d'objets fermées.
-          </p>
-        </div>
-
-        <div class="card-box" style="margin-bottom: 6px;">
-          <h3 style="color: #2D5A43;">2. Modernisation Dart Sass 3.0 (@use & color.adjust)</h3>
-          <p style="font-size: 8pt; margin: 0;">
-            Le code généré initialement contenait des fonctions globales obsolètes (<code>map-get</code>, <code>darken</code>). J'ai imposé l'usage des modules natifs <code>@use 'sass:map'</code> et <code>@use 'sass:color'</code> avec <code>color.adjust()</code>. Le projet compile ainsi sans aucun warning de dépréciation avec <code>sass-embedded</code>.
-          </p>
-        </div>
-      </div>
-
-      <div class="card-box" style="margin-top: 6px;">
-        <h3 style="color: #2D5A43;">3. Calculs dérivés plutôt que duplication d'état React</h3>
-        <p style="font-size: 8pt; margin: 0;">
-          L'IA avait tendance à stocker dans le <code>useState</code> des valeurs dérivées (le nombre de nuits, le total TTC et les résultats filtrés). J'ai restructuré le code pour que le filtrage et les calculs de devis soient entièrement dérivés via <code>useMemo</code> et des fonctions pures. Cela élimine les risques de désynchronisation de l'interface lors des modifications rapides.
+      <div class="card-box" style="margin-top: 15px; padding: 12px 16px;">
+        <h3 style="color: #2D5A43; margin-top: 0; margin-bottom: 6px; font-size: 10pt;">Synthèse de la démarche</h3>
+        <p style="font-size: 8.5pt; color: #2D3748; margin-bottom: 0; line-height: 1.45;">
+          L'utilisation de l'IA a permis d'accélérer la mise en place de la structure initiale et des données de test. Chaque fichier a fait l'objet d'un contrôle strict des règles ergonomiques (cibles tactiles ≥ 44 px, navigation au clavier, zéro violation A11y dans Storybook) et des contraintes imposées par l'enseignant (tokens Tailwind 4 dans <code>@theme</code>, module SCSS avec <code>@use</code>, Vite & React 19).
         </p>
       </div>
 
-      <h2 style="margin-top: 12px;">Préparation à la Séance 3 (Épreuve 2h & Oral 4 min)</h2>
-      <p style="font-size: 8pt; color: #536257;">
-        Le code est conçu de façon modulaire et typée (TypeScript) pour permettre d'intégrer sans difficulté la modification tirée au sort en séance 3 (nouvel écran, champ additionnel ou composant). L'oral est structuré pour présenter le parcours de Julien en 1 minute, puis détailler l'architecture technique (Tailwind 4 <code>@theme</code>, SASS module, Storybook et accessibilité).
-      </p>
-
-      <div class="card-box" style="margin-top: 10px; text-align: center; font-size: 8.5pt;">
-        <strong>Dépôt Git :</strong> <a href="https://github.com/hugo-ry02/BivouacSauvage" style="color: #2D5A43;">https://github.com/hugo-ry02/BivouacSauvage</a> • 
-        <strong>Site en ligne :</strong> <a href="https://bivouac-sauvage.vercel.app/" style="color: #D97736;">https://bivouac-sauvage.vercel.app/</a>
+      <div class="card-box" style="margin-top: 15px; text-align: center; font-size: 9pt; padding: 10px;">
+        <strong>Dépôt Git :</strong> <a href="https://github.com/hugo-ry02/BivouacSauvage" style="color: #2D5A43; text-decoration: none;">https://github.com/hugo-ry02/BivouacSauvage</a> &nbsp;•&nbsp; 
+        <strong>Site en ligne :</strong> <a href="https://bivouac-sauvage.vercel.app/" style="color: #D97736; text-decoration: none;">https://bivouac-sauvage.vercel.app/</a>
       </div>
     </div>
 
