@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="1000" height="480">
+  <defs>
+    <style>
+      .bg { fill: #FAF9F5; }
+      .frame { fill: #FFFFFF; stroke: #4A5568; stroke-width: 2; stroke-dasharray: 4 2; rx: 8; }
+      .box { fill: #EDF2F7; stroke: #718096; stroke-width: 1.5; rx: 4; }
+      .box-accent { fill: #FEEBC8; stroke: #DD6B20; stroke-width: 1.5; rx: 4; }
+      .title { font-family: sans-serif; font-weight: bold; font-size: 14px; fill: #2D3748; }
+      .label { font-family: sans-serif; font-size: 11px; fill: #718096; }
+      .hand { font-family: cursive, sans-serif; font-size: 12px; fill: #2C5282; }
+      .line { stroke: #A0AEC0; stroke-width: 1.5; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <rect width="1000" height="480" fill="#F7FAFC"/>
+
+  <!-- Screen 1: Mobile Wireframe Accueil -->
+  <g transform="translate(40, 30)">
+    <rect class="frame" width="180" height="380"/>
+    <text class="title" x="90" y="24" text-anchor="middle">Accueil (Mobile)</text>
+    <!-- Nav -->
+    <rect class="box" x="12" y="36" width="156" height="28"/>
+    <text class="label" x="20" y="54">🌲 Logo</text>
+    <text class="label" x="145" y="54">☰</text>
+    <!-- Hero -->
+    <rect class="box-accent" x="12" y="72" width="156" height="110"/>
+    <text class="title" x="90" y="105" text-anchor="middle" font-size="11">BIVOUAC SAUVAGE</text>
+    <text class="label" x="90" y="122" text-anchor="middle" font-size="9">Éco-hébergements Verzy</text>
+    <rect class="box" x="35" y="140" width="110" height="26" fill="#DD6B20"/>
+    <text class="label" x="90" y="157" text-anchor="middle" fill="#FFFFFF" font-weight="bold">CTA : Explorer</text>
+    <!-- Cards -->
+    <rect class="box" x="12" y="192" width="156" height="75"/>
+    <text class="label" x="20" y="210">📷 Photo hébergement</text>
+    <text class="hand" x="20" y="235">Dôme Canopée 120€</text>
+    <!-- Social proof -->
+    <rect class="box" x="12" y="277" width="156" height="60"/>
+    <text class="label" x="90" y="300" text-anchor="middle" font-size="9">⭐ 4.9/5 Avis vérifiés</text>
+    <text class="hand" x="90" y="320" text-anchor="middle" font-size="10">"Déconnexion express"</text>
+    <!-- Annotations -->
+    <text class="hand" x="90" y="415" text-anchor="middle">Croquis Mobile : 1 CTA direct</text>
+  </g>
+
+  <!-- Screen 2: Desktop Wireframe Explorer -->
+  <g transform="translate(260, 30)">
+    <rect class="frame" width="380" height="380"/>
+    <text class="title" x="190" y="24" text-anchor="middle">Catalogue Interactif (Desktop)</text>
+    <!-- Navbar -->
+    <rect class="box" x="16" y="36" width="348" height="32"/>
+    <text class="label" x="30" y="56" font-weight="bold">🌲 BIVOUAC SAUVAGE</text>
+    <text class="label" x="220" y="56">Accueil | Bivouacs | Réserver</text>
+    <!-- Filter bar -->
+    <rect class="box" x="16" y="78" width="348" height="52"/>
+    <rect class="box" x="26" y="86" width="140" height="20"/>
+    <text class="label" x="32" y="100">🔍 Recherche...</text>
+    <rect class="box" x="175" y="86" width="70" height="20"/>
+    <text class="label" x="180" y="100">Tri : Prix ▾</text>
+    <rect class="box-accent" x="252" y="86" width="100" height="20"/>
+    <text class="label" x="258" y="100">🐕 Animaux OK</text>
+    <text class="label" x="26" y="122" font-size="9">Puces : [Tous] [Dôme] [Cabane] [Tente] [Roulotte]</text>
+    <!-- 4 Cards Grid -->
+    <rect class="box" x="16" y="140" width="168" height="105"/>
+    <text class="label" x="24" y="160">Photo Dôme</text>
+    <text class="hand" x="24" y="180">Dôme Canopée</text>
+    <text class="label" x="24" y="200">120€ / nuit • 2 pers.</text>
+    <rect class="box" x="100" y="215" width="76" height="20" fill="#2D5A43"/>
+    <text class="label" x="138" y="229" text-anchor="middle" fill="#FFF" font-size="9">Découvrir</text>
+
+    <rect class="box" x="196" y="140" width="168" height="105"/>
+    <text class="label" x="204" y="160">Photo Cabane</text>
+    <text class="hand" x="204" y="180">Trois Chênes</text>
+    <text class="label" x="204" y="200">165€ / nuit • 4 pers.</text>
+    <rect class="box" x="280" y="215" width="76" height="20" fill="#2D5A43"/>
+    <text class="label" x="318" y="229" text-anchor="middle" fill="#FFF" font-size="9">Découvrir</text>
+
+    <!-- Row 2 Cards -->
+    <rect class="box" x="16" y="255" width="168" height="105"/>
+    <text class="label" x="24" y="275">Photo Safari</text>
+    <text class="hand" x="24" y="295">Tente Clairière</text>
+    <text class="label" x="24" y="315">85€ / nuit • 🐕 OK</text>
+
+    <rect class="box" x="196" y="255" width="168" height="105"/>
+    <text class="label" x="204" y="275">Photo Roulotte</text>
+    <text class="hand" x="204" y="295">Roulotte Sylvestre</text>
+    <text class="label" x="204" y="315">95€ / nuit • 🐕 OK</text>
+    <!-- Annotation -->
+    <text class="hand" x="190" y="415" text-anchor="middle">Croquis Desktop : Filtres combinables + Grille dynamique</text>
+  </g>
+
+  <!-- Screen 3: Desktop Wireframe Formulaire Réservation -->
+  <g transform="translate(680, 30)">
+    <rect class="frame" width="280" height="380"/>
+    <text class="title" x="140" y="24" text-anchor="middle">Formulaire Action & Devis</text>
+    <!-- Steps -->
+    <rect class="box" x="16" y="38" width="248" height="60"/>
+    <text class="label" x="24" y="54" font-weight="bold">1. Choix Hébergement</text>
+    <rect class="box" x="24" y="62" width="232" height="24"/>
+    <text class="label" x="32" y="78">Dôme La Canopée (120 € / nuit)</text>
+
+    <rect class="box" x="16" y="108" width="248" height="70"/>
+    <text class="label" x="24" y="124" font-weight="bold">2. Dates & Voyageurs</text>
+    <text class="label" x="24" y="142">Du [27/10] au [29/10] (2 nuits)</text>
+    <text class="label" x="24" y="160">Voyageurs : 2 pers. | 🐕 Chien : [X]</text>
+
+    <rect class="box" x="16" y="188" width="248" height="75"/>
+    <text class="label" x="24" y="204" font-weight="bold">3. Coordonnées Contact</text>
+    <text class="label" x="24" y="222">Prénom, Nom, Email, Tél...</text>
+    <text class="hand" x="24" y="245">Validation instantanée</text>
+
+    <rect class="box-accent" x="16" y="272" width="248" height="65"/>
+    <text class="hand" x="24" y="290">Devis calculé : 240 € TTC</text>
+    <rect class="box" x="24" y="302" width="232" height="26" fill="#DD6B20"/>
+    <text class="label" x="140" y="319" text-anchor="middle" fill="#FFF" font-weight="bold">Confirmer la réservation</text>
+
+    <!-- Annotation -->
+    <text class="hand" x="140" y="415" text-anchor="middle">Croquis Action : Tunnel 0 erreur</text>
+  </g>
+</svg>
