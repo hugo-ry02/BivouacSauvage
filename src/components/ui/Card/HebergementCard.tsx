@@ -32,20 +32,11 @@ export const HebergementCard: React.FC<HebergementCardProps> = ({
         />
 
         {/* Badge catégorie en haut à gauche */}
-        <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
-          <span className="inline-flex items-center gap-1 rounded-full bg-forest-900/85 backdrop-blur-sm px-2.5 py-1 text-xs font-semibold text-surface-ground">
-            <Trees className="w-3.5 h-3.5 text-accent-400" aria-hidden="true" />
-            {hebergement.typeLabel}
+        <div className="absolute top-3 left-3 max-w-[calc(100%-6.5rem)]">
+          <span className="inline-flex items-center gap-1 rounded-full bg-forest-900/85 backdrop-blur-sm px-2.5 py-1 text-xs font-semibold text-surface-ground shadow-xs truncate">
+            <Trees className="w-3.5 h-3.5 text-accent-400 shrink-0" aria-hidden="true" />
+            <span className="truncate">{hebergement.typeLabel}</span>
           </span>
-          {hebergement.animaux_acceptes && (
-            <span
-              className="inline-flex items-center gap-1 rounded-full bg-amber-900/80 backdrop-blur-sm px-2.5 py-1 text-xs font-semibold text-amber-100"
-              title="Animaux de compagnie acceptés"
-            >
-              <Dog className="w-3.5 h-3.5 text-amber-300" aria-hidden="true" />
-              Animaux bienvenus
-            </span>
-          )}
         </div>
 
         {/* Note d'avis en haut à droite */}
@@ -54,6 +45,19 @@ export const HebergementCard: React.FC<HebergementCardProps> = ({
           <span>{hebergement.note.toFixed(2)}</span>
           <span className="text-text-muted font-normal">({hebergement.nb_avis})</span>
         </div>
+
+        {/* Badge animaux acceptés en bas à gauche sur l'image (isolé de la note) */}
+        {hebergement.animaux_acceptes && (
+          <div className="absolute bottom-3 left-3">
+            <span
+              className="inline-flex items-center gap-1 rounded-full bg-amber-950/85 backdrop-blur-sm px-2.5 py-1 text-xs font-semibold text-amber-100 shadow-xs border border-amber-400/20"
+              title="Animaux de compagnie acceptés"
+            >
+              <Dog className="w-3.5 h-3.5 text-amber-300" aria-hidden="true" />
+              Animaux bienvenus
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Contenu textuel */}
