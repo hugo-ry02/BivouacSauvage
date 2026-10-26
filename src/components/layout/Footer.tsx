@@ -37,31 +37,40 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h3>
             <ul className="space-y-2.5 text-sm text-forest-200">
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('accueil')}
+                <a
+                  href="#accueil"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('accueil');
+                  }}
                   className="hover:text-surface-ground transition-colors focus-visible:outline-2 focus-visible:outline-accent-400 rounded-sm"
                 >
                   Accueil & Démarche
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('explorer')}
+                <a
+                  href="#explorer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('explorer');
+                  }}
                   className="hover:text-surface-ground transition-colors focus-visible:outline-2 focus-visible:outline-accent-400 rounded-sm"
                 >
                   Nos 12 Éco-hébergements
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('reservation')}
+                <a
+                  href="#reservation"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('reservation');
+                  }}
                   className="hover:text-surface-ground transition-colors focus-visible:outline-2 focus-visible:outline-accent-400 rounded-sm"
                 >
                   Réservation & Devis direct
-                </button>
+                </a>
               </li>
             </ul>
           </div>

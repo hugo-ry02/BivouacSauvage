@@ -25,7 +25,10 @@ export const HebergementCard: React.FC<HebergementCardProps> = ({
           src={hebergement.image_principale}
           alt={`Photographie de l'éco-hébergement ${hebergement.nom} en pleine forêt`}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          width="600"
+          height="375"
           loading="lazy"
+          decoding="async"
         />
 
         {/* Badge catégorie en haut à gauche */}

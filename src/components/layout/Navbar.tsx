@@ -65,10 +65,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentScreen, onNavigate }) => 
           {navItems.map((item) => {
             const isActive = currentScreen === item.screen;
             return (
-              <button
+              <a
                 key={item.screen}
-                type="button"
-                onClick={() => handleNavClick(item.screen)}
+                href={`#${item.screen}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.screen);
+                }}
                 aria-current={isActive ? 'page' : undefined}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all min-h-[44px] cursor-pointer ${
                   isActive
@@ -78,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentScreen, onNavigate }) => 
               >
                 {item.icon}
                 <span>{item.label}</span>
-              </button>
+              </a>
             );
           })}
         </nav>
@@ -119,10 +122,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentScreen, onNavigate }) => 
             {navItems.map((item) => {
               const isActive = currentScreen === item.screen;
               return (
-                <button
+                <a
                   key={item.screen}
-                  type="button"
-                  onClick={() => handleNavClick(item.screen)}
+                  href={`#${item.screen}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.screen);
+                  }}
                   aria-current={isActive ? 'page' : undefined}
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg text-base font-semibold transition-all min-h-[44px] text-left ${
                     isActive
@@ -132,7 +138,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentScreen, onNavigate }) => 
                 >
                   {item.icon}
                   <span>{item.label}</span>
-                </button>
+                </a>
               );
             })}
           </div>

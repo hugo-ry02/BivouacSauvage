@@ -23,10 +23,10 @@
       "Thé & café bio torréfié à Reims"
     ],
     "eco_labels": ["solaire", "poele", "zero_dechet"],
-    "image_principale": "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1200&q=80",
+    "image_principale": "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=720&q=75&fm=webp",
     "images_secondaires": [
-      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=500&q=75&fm=webp",
+      "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=500&q=75&fm=webp"
     ],
     "disponible": true
   },
@@ -54,9 +54,9 @@
       "Panier petit-déjeuner hissé à la corde"
     ],
     "eco_labels": ["bain_nordique", "poele", "compost"],
-    "image_principale": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80",
+    "image_principale": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=720&q=75&fm=webp",
     "images_secondaires": [
-      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=500&q=75&fm=webp"
     ],
     "disponible": true
   },
@@ -84,9 +84,9 @@
       "Gamelle & tapis chien fournis"
     ],
     "eco_labels": ["solaire", "zero_dechet"],
-    "image_principale": "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=1200&q=80",
+    "image_principale": "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=720&q=75&fm=webp",
     "images_secondaires": [
-      "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=500&q=75&fm=webp"
     ],
     "disponible": true
   },
@@ -114,9 +114,9 @@
       "Animaux accueillis sans supplément"
     ],
     "eco_labels": ["solaire", "compost"],
-    "image_principale": "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?auto=format&fit=crop&w=1200&q=80",
+    "image_principale": "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?auto=format&fit=crop&w=720&q=75&fm=webp",
     "images_secondaires": [
-      "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=500&q=75&fm=webp"
     ],
     "disponible": true
   },
@@ -144,9 +144,9 @@
       "Chauffage poêle à bois"
     ],
     "eco_labels": ["poele", "compost", "zero_dechet"],
-    "image_principale": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80",
+    "image_principale": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=720&q=75&fm=webp",
     "images_secondaires": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=75&fm=webp"
     ],
     "disponible": true
   },
@@ -174,9 +174,9 @@
       "Plateau apéritif d'accueil bio"
     ],
     "eco_labels": ["bain_nordique", "poele", "solaire"],
-    "image_principale": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80",
+    "image_principale": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=720&q=75&fm=webp",
     "images_secondaires": [
-      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=500&q=75&fm=webp"
     ],
     "disponible": true
   },
@@ -204,9 +204,9 @@
       "Animaux de compagnie acceptés"
     ],
     "eco_labels": ["zero_dechet", "compost"],
-    "image_principale": "https://images.unsplash.com/photo-1496545672447-f699b503d270?auto=format&fit=crop&w=1200&q=80",
+    "image_principale": "https://images.unsplash.com/photo-1496545672447-f699b503d270?auto=format&fit=crop&w=720&q=75&fm=webp",
     "images_secondaires": [
-      "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=500&q=75&fm=webp"
     ],
     "disponible": true
   },
@@ -234,9 +234,9 @@
       "Accueil animaux avec tapis dédié"
     ],
     "eco_labels": ["solaire", "zero_dechet"],
-    "image_principale": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+    "image_principale": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=720&q=75&fm=webp",
     "images_secondaires": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=75&fm=webp"
     ],
     "disponible": true
   },
@@ -264,9 +264,9 @@
       "Zéro pollution sonore ou lumineuse"
     ],
     "eco_labels": ["poele", "solaire", "compost"],
-    "image_principale": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80",
+    "image_principale": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=720&q=75&fm=webp",
     "images_secondaires": [
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=500&q=75&fm=webp"
     ],
     "disponible": true
   },
@@ -294,9 +294,9 @@
       "Bouteille de jus de raisin artisanal bio offerte"
     ],
     "eco_labels": ["bain_nordique", "poele", "solaire"],
-    "image_principale": "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1200&q=80",
+    "image_principale": "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=720&q=75&fm=webp",
     "images_secondaires": [
-      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=500&q=75&fm=webp"
     ],
     "disponible": true
   },
@@ -324,9 +324,9 @@
       "Accueil chaleureux des animaux de compagnie"
     ],
     "eco_labels": ["zero_dechet", "solaire"],
-    "image_principale": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1200&q=80",
+    "image_principale": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=720&q=75&fm=webp",
     "images_secondaires": [
-      "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=500&q=75&fm=webp"
     ],
     "disponible": true
   },
@@ -354,9 +354,9 @@
       "Chiens et chats bienvenus"
     ],
     "eco_labels": ["poele", "compost", "zero_dechet"],
-    "image_principale": "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1200&q=80",
+    "image_principale": "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=720&q=75&fm=webp",
     "images_secondaires": [
-      "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?auto=format&fit=crop&w=500&q=75&fm=webp"
     ],
     "disponible": true
   }
