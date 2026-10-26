@@ -42,12 +42,12 @@ const htmlContent = `<!DOCTYPE html>
   <style>
     @page {
       size: A4 portrait;
-      margin: 12mm 14mm 14mm 14mm;
+      margin: 14mm 16mm 14mm 16mm;
       @bottom-right {
-        content: counter(page) " / 8";
-        font-family: sans-serif;
+        content: "Page " counter(page) " / 8";
+        font-family: "Georgia", "Times New Roman", serif;
         font-size: 8.5pt;
-        color: #718096;
+        color: #4B5563;
       }
     }
 
@@ -58,16 +58,16 @@ const htmlContent = `<!DOCTYPE html>
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 9.2pt;
-      line-height: 1.36;
-      color: #1A241E;
+      font-family: "Georgia", "Times New Roman", "Cambria", serif;
+      font-size: 9.5pt;
+      line-height: 1.42;
+      color: #111827;
       background: #FFFFFF;
     }
 
     .page {
       page-break-after: always;
-      height: 270mm;
+      height: 268mm;
       position: relative;
       overflow: hidden;
       display: flex;
@@ -79,117 +79,149 @@ const htmlContent = `<!DOCTYPE html>
       page-break-after: avoid;
     }
 
+    /* En-tête classique formel */
     .header-bar {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #2D5A43;
+      align-items: flex-end;
+      border-bottom: 1.5pt solid #1F2937;
       padding-bottom: 5px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
     .header-bar .brand {
-      font-size: 11pt;
-      font-weight: 800;
-      color: #2D5A43;
-      letter-spacing: 0.5px;
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #1F2937;
     }
 
     .header-bar .meta {
       font-size: 8pt;
-      color: #536257;
+      color: #4B5563;
+      font-style: italic;
     }
 
     .footer-bar {
-      border-top: 1px solid #E2E8F0;
-      padding-top: 4px;
+      border-top: 0.75pt solid #D1D5DB;
+      padding-top: 5px;
       display: flex;
       justify-content: space-between;
       font-size: 7.5pt;
-      color: #718096;
+      color: #6B7280;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
-    h1 {
-      font-size: 18pt;
-      color: #1F3A2D;
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 8px;
+    /* Titres sobres et classiques */
+    h1.doc-title {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 23pt;
+      color: #111827;
+      font-weight: 700;
+      line-height: 1.15;
+      text-align: center;
+      margin: 8px 0 4px 0;
     }
 
     h2 {
-      font-size: 12pt;
-      color: #2D5A43;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 11.5pt;
+      color: #111827;
       font-weight: 700;
-      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 10px;
       margin-bottom: 6px;
-      border-left: 3px solid #D97736;
-      padding-left: 8px;
+      border-bottom: 1pt solid #E5E7EB;
+      padding-bottom: 3px;
     }
 
     h3 {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-size: 9.5pt;
-      color: #1F3A2D;
-      font-weight: 700;
-      margin-top: 6px;
+      color: #1F2937;
+      font-weight: 600;
+      margin-top: 8px;
       margin-bottom: 4px;
     }
 
     p {
       margin-bottom: 6px;
-      color: #2D3748;
+      text-align: justify;
+      color: #1F2937;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 2px 7px;
-      border-radius: 9999px;
-      font-size: 7.5pt;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .badge-forest { background: #E2EDE6; color: #2D5A43; }
-    .badge-accent { background: #FBF0E6; color: #B55725; }
-
-    table {
+    /* Tableaux style Booktabs classique */
+    table.classic-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 6px 0 10px 0;
+      margin: 8px 0 12px 0;
       font-size: 8.5pt;
     }
 
-    th, td {
-      border: 1px solid #E2E8F0;
+    table.classic-table th, table.classic-table td {
       padding: 5px 8px;
       text-align: left;
       vertical-align: top;
     }
 
-    th {
-      background: #F2F7F4;
-      color: #1F3A2D;
+    table.classic-table th {
+      border-top: 1.5pt solid #111827;
+      border-bottom: 1pt solid #111827;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 8pt;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: #F9FAFB;
+      color: #111827;
     }
 
-    .card-box {
-      background: #F9F8F5;
-      border: 1px solid #E3DED5;
-      border-radius: 6px;
-      padding: 8px 10px;
-      margin-bottom: 8px;
+    table.classic-table td {
+      border-bottom: 0.5pt solid #E5E7EB;
+      color: #1F2937;
+    }
+
+    table.classic-table tr:last-child td {
+      border-bottom: 1.5pt solid #111827;
+    }
+
+    /* Cadres et figures sobres */
+    .figure-box {
+      border: 0.5pt solid #D1D5DB;
+      background: #FFFFFF;
+      padding: 3px;
+      margin-bottom: 4px;
+    }
+
+    .figure-box img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .figure-caption {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 7pt;
+      color: #4B5563;
+      text-align: center;
+      margin-top: 3px;
+      margin-bottom: 4px;
+      font-style: italic;
     }
 
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 12px;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 8px;
+      gap: 10px;
     }
 
     .grid-4 {
@@ -198,86 +230,27 @@ const htmlContent = `<!DOCTYPE html>
       gap: 8px;
     }
 
-    .img-frame {
-      border: 1px solid #CBD5E0;
-      border-radius: 6px;
-      overflow: hidden;
-      background: #EDF2F7;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-
-    .img-frame img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    .caption {
-      font-size: 7pt;
-      color: #718096;
-      text-align: center;
-      margin-top: 3px;
-      font-style: italic;
-    }
-
-    .score-circle {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      border: 4px solid #10B981;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 13pt;
-      color: #065F46;
-      background: #ECFDF5;
-      margin: 0 auto 4px auto;
-    }
-    .score-circle.orange {
-      border-color: #F59E0B;
-      color: #B45309;
-      background: #FFFBEB;
-    }
-
-    .score-card {
-      text-align: center;
-      padding: 6px;
-      background: #FFFFFF;
-      border: 1px solid #E2E8F0;
-      border-radius: 8px;
-    }
-
-    .score-card .label {
-      font-size: 7.5pt;
-      font-weight: 700;
-      color: #4A5568;
-    }
-
-    ul, ol {
-      margin-left: 16px;
-      margin-bottom: 6px;
+    .info-panel {
+      border: 0.75pt solid #D1D5DB;
+      background: #F9FAFB;
+      padding: 8px 12px;
+      margin: 8px 0;
       font-size: 8.5pt;
     }
 
-    li {
-      margin-bottom: 3px;
-    }
-
-    .highlight-quote {
-      background: #FFF8E6;
-      border-left: 3px solid #D97736;
-      padding: 6px 10px;
-      font-size: 8.5pt;
+    .quote-box {
+      border-left: 2pt solid #1F2937;
+      padding-left: 10px;
       margin: 6px 0;
-      border-radius: 0 4px 4px 0;
+      font-style: italic;
+      color: #374151;
+      font-size: 8.5pt;
     }
 
-    .wireframe-container svg {
+    .wireframe-classic svg {
       width: 100%;
       height: auto;
-      max-height: 140px;
+      max-height: 125px;
       display: block;
       margin: 0 auto;
     }
@@ -289,75 +262,78 @@ const htmlContent = `<!DOCTYPE html>
   <div class="page">
     <div>
       <div class="header-bar">
-        <span class="brand">🌲 BIVOUAC SAUVAGE</span>
-        <span class="meta">ESGI Reims — TailwindCSS & SASS — Dossier de Projet</span>
+        <span class="brand">Bivouac Sauvage — Dossier de Projet</span>
+        <span class="meta">ESGI Reims • Bac+3 Développement Web • 2026-2027</span>
       </div>
 
-      <div style="text-align: center; margin: 15px 0 20px 0;">
-        <span class="badge badge-accent">Dossier de Conception & Intégration</span>
-        <h1 style="font-size: 24pt; margin: 8px 0 4px 0; color: #1F3A2D;">Bivouac Sauvage</h1>
-        <p style="font-size: 11pt; color: #2D5A43; font-weight: 600;">
-          Plateforme d'éco-hébergements insolites en plein cœur de la Montagne de Reims
-        </p>
-        <p style="font-size: 8.5pt; color: #718096; margin-top: 4px;">
-          Étudiant : <strong>Hugo Rayaume</strong> • Enseignant : <strong>Cédric Navet</strong> • Date : Octobre 2026
-        </p>
+      <div style="text-align: center; margin: 15px 0 20px 0; border-bottom: 1pt solid #E5E7EB; padding-bottom: 16px;">
+        <div style="font-family: -apple-system, sans-serif; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 1.5px; color: #4B5563; font-weight: 600;">
+          Feuille de Projet Noté • TailwindCSS & SASS
+        </div>
+        <h1 class="doc-title">Bivouac Sauvage</h1>
+        <div style="font-size: 11pt; font-style: italic; color: #374151; margin-top: 4px;">
+          Conception et intégration responsive du site d'un éco-domaine forestier
+        </div>
+        <div style="font-family: -apple-system, sans-serif; font-size: 8.5pt; color: #4B5563; margin-top: 10px;">
+          Auteur : <strong>Hugo Rayaume</strong> &nbsp;•&nbsp; Enseignant : <strong>Cédric Navet</strong> &nbsp;•&nbsp; Date de rendu : Octobre 2026
+        </div>
 
-        <div style="display: flex; justify-content: center; gap: 15px; margin-top: 10px;">
-          <div class="card-box" style="margin: 0; padding: 6px 12px; font-size: 8.5pt;">
-            <strong>🌐 Site en ligne :</strong> <a href="https://bivouac-sauvage.vercel.app/" style="color: #D97736; text-decoration: none;">https://bivouac-sauvage.vercel.app/</a>
-          </div>
-          <div class="card-box" style="margin: 0; padding: 6px 12px; font-size: 8.5pt;">
-            <strong>🐙 Dépôt Git :</strong> <a href="https://github.com/hugo-ry02/BivouacSauvage" style="color: #2D5A43; text-decoration: none;">github.com/hugo-ry02/BivouacSauvage</a>
-          </div>
+        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 12px; font-family: -apple-system, sans-serif; font-size: 8.5pt;">
+          <div><strong>Site en ligne :</strong> <a href="https://bivouac-sauvage.vercel.app/" style="color: #111827; text-decoration: underline;">https://bivouac-sauvage.vercel.app/</a></div>
+          <div><strong>Dépôt Git :</strong> <a href="https://github.com/hugo-ry02/BivouacSauvage" style="color: #111827; text-decoration: underline;">github.com/hugo-ry02/BivouacSauvage</a></div>
         </div>
       </div>
 
-      <h2>1. Cadrage du Projet (Étape 1)</h2>
-      <p style="font-size: 8.5pt; margin-bottom: 8px;">
-        Le projet respecte à 100% les consignes : client fictif sans marque existante, pas de conférence (Nova Conf évité), et vrai besoin d'interactivité (parcours, filtres combinés, réservation sans friction).
+      <h2>1. Fiche de Cadrage du Client Fictif (Étape 1)</h2>
+      <p style="font-size: 9pt;">
+        Le projet s'inscrit dans les règles strictes de la feuille de cadrage : client fictif sans marque existante, pas de conférence (l'exemple Nova Conf étant expressément exclu), et justification d'une réelle interactivité (catalogue complet, filtres croisés, tri et réservation immédiate sans intermédiaire).
       </p>
 
-      <table>
-        <tr>
-          <th style="width: 28%;">Rubrique</th>
-          <th>Détail du projet validé</th>
-        </tr>
-        <tr>
-          <td><strong>Le Client</strong></td>
-          <td><strong>Bivouac Sauvage</strong> — Tourisme durable & hébergement insolite. Situé à <strong>Verzy</strong> (Parc Naturel Régional de la Montagne de Reims, 51). Domaine préservé de 15 hectares, 12 hébergements atypiques, équipe de 4 personnes.</td>
-        </tr>
-        <tr>
-          <td><strong>Offres & Services (5)</strong></td>
-          <td>
-            1. <strong>Dôme Géodésique « La Canopée »</strong> : lit panoramique sous les étoiles, poêle scandinave (120 € / nuit, 2 pers).<br>
-            2. <strong>Cabane des Trois Chênes</strong> : cabane perchée à 7m avec bain nordique privatif au feu de bois (165 € / nuit, 4 pers).<br>
-            3. <strong>Tente Bell Safari « Clairière »</strong> : glamping coton bio, poêle granulés, douche solaire (85 € / nuit, 2 pers).<br>
-            4. <strong>Roulotte Sylvestre Rétro</strong> : bois massif, de plain-pied, jardin clos privatif de 300 m² (95 € / nuit, 3 pers, animaux acceptés).<br>
-            5. <strong>Pack Micro-aventure « Immersion Sauvage »</strong> : guide naturaliste crépusculaire + panier terroir bio (45 € / pers en option).
-          </td>
-        </tr>
-        <tr>
-          <td><strong>Objectif du site</strong></td>
-          <td><strong>« Permettre aux couples et familles en quête de déconnexion de découvrir, filtrer et réserver un hébergement insolite en pleine nature en moins de 3 minutes et avec confirmation immédiate. »</strong></td>
-        </tr>
-        <tr>
-          <td><strong>Données JSON</strong></td>
-          <td><code>src/data/hebergements.json</code> : 12 éléments complets réalistes avec prix, capacité, labels éco, images, équipements et hauteur sol.</td>
-        </tr>
-        <tr>
-          <td><strong>Composant SASS</strong></td>
-          <td><code>EcoBadge.module.scss</code> avec partials <code>@use</code>, boucle <code>@each</code> sur les catégories et calcul SASS automatique du contraste WCAG AA.</td>
-        </tr>
-        <tr>
-          <td><strong>Ambiance & Design</strong></td>
-          <td>Mots-clés : <em>Sauvage, Serein, Éco-conçu</em> • Couleurs tokens <code>@theme</code> : Vert canopée (<code>#2D5A43</code>), Ocre feu de camp (<code>#D97736</code>), Fond lin (<code>#F9F8F5</code>).</td>
-        </tr>
+      <table class="classic-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Rubrique</th>
+            <th>Spécification du projet validée</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Client & Typologie</strong></td>
+            <td><strong>Bivouac Sauvage</strong> — Tourisme durable & éco-hébergements insolites.<br>Localisation : <strong>Verzy</strong> (Parc Naturel Régional de la Montagne de Reims, Marne). Domaine préservé de 15 hectares, 12 hébergements atypiques, exploitation artisanale de 4 personnes.</td>
+          </tr>
+          <tr>
+            <td><strong>Offres & Tarifs</strong></td>
+            <td>
+              1. <em>Dôme Géodésique « La Canopée »</em> : vue panoramique sur les étoiles, poêle scandinave (120 € / nuit pour 2 pers).<br>
+              2. <em>Cabane des Trois Chênes</em> : perchée à 7 mètres avec bain nordique privatif au feu de bois (165 € / nuit jusqu'à 4 pers).<br>
+              3. <em>Tente Bell Safari « Clairière »</em> : lodge coton biologique et poêle à granulés (85 € / nuit pour 2 pers).<br>
+              4. <em>Roulotte Sylvestre Rétro</em> : bois massif de plain-pied avec jardin clos privatif (95 € / nuit, 3 pers, animaux acceptés).<br>
+              5. <em>Pack Micro-aventure « Immersion Sauvage »</em> : balade nocturne guidée et panier terroir bio (45 € / pers en option).
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Objectif mesurable</strong></td>
+            <td><strong>« Permettre aux couples et familles en quête de déconnexion de découvrir, filtrer et réserver un hébergement insolite en pleine nature en moins de 3 minutes et avec confirmation immédiate. »</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Jeu de Données</strong></td>
+            <td>Fichier <code>src/data/hebergements.json</code> composé de 12 hébergements réalistes (sans « Lorem ipsum ») avec typologies, superficies, hauteurs sol, tarifs, avis et labels écologiques.</td>
+          </tr>
+          <tr>
+            <td><strong>Composant SASS</strong></td>
+            <td><code>EcoBadge.module.scss</code> : architecture modulaire avec <code>@use</code>, boucle <code>@each</code> sur les catégories et calculs d'ajustement colorimétrique conformes WCAG AA.</td>
+          </tr>
+          <tr>
+            <td><strong>Charte & Tokens</strong></td>
+            <td>Mots-clés : <em>Sauvage, Serein, Éco-conçu</em>.<br>Tokens déclarés dans <code>@theme</code> : Vert Forêt (<code>#2D5A43</code>), Ocre Terre (<code>#D97736</code>), Fond Lin (<code>#F9F8F5</code>), Texte Écorce (<code>#1A241E</code>).</td>
+          </tr>
+        </tbody>
       </table>
     </div>
 
     <div class="footer-bar">
-      <span>Bivouac Sauvage — Dossier de Projet</span>
+      <span>ESGI Reims • Bac+3 Web • TailwindCSS & SASS</span>
+      <span>Hugo Rayaume</span>
       <span>Page 1 / 8</span>
     </div>
   </div>
@@ -366,30 +342,29 @@ const htmlContent = `<!DOCTYPE html>
   <div class="page">
     <div>
       <div class="header-bar">
-        <span class="brand">🌲 BIVOUAC SAUVAGE</span>
-        <span class="meta">Partie 2 : Personas & Missions Mesurables</span>
+        <span class="brand">Bivouac Sauvage — Dossier de Projet</span>
+        <span class="meta">2. Personas et Missions Mesurables</span>
       </div>
 
-      <h2>2. Personas et Missions Mesurables</h2>
-      <p style="font-size: 8.5pt;">
-        Deux personas aux contextes, âges, contraintes d'usage et matériels diamétralement opposés ont guidé chaque arbitrage UX :
+      <h2>2. Personas et Missions Mesurables (Étape 1)</h2>
+      <p style="font-size: 9pt;">
+        Deux personas représentatifs ont été modélisés selon la formule imposée : <em>qui doit faire quoi, sur quel appareil, avec un critère de réussite mesurable</em>.
       </p>
 
-      <div class="grid-2" style="margin-top: 8px;">
+      <div class="grid-2" style="margin-top: 6px;">
         <!-- Persona 1 -->
-        <div class="card-box" style="background: #FFFFFF;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <h3 style="color: #2D5A43;">Persona 1 : Julien (34 ans)</h3>
-            <span class="badge badge-forest">Mobile 375 px</span>
-          </div>
-          <table>
-            <tr><th style="width: 32%;">Qui</th><td>Chef de projet digital à Paris, habitué aux UX mobiles rapides.</td></tr>
-            <tr><th>Contexte</th><td>Dans le train du retour un vendredi soir, sur son iPhone (écran 375px), consultation à une main en 4G.</td></tr>
-            <tr><th>Ce qu'il veut</th><td>Un hébergement romantique isolé pour 2 pers. avec vue étoiles et poêle à bois pour le week-end suivant.</td></tr>
-            <tr><th>Ce qui le gêne</th><td>Les formulaires à rallonge, les tunnels de paiement lents et les frais cachés en fin de parcours.</td></tr>
+        <div class="info-panel" style="background: #FFFFFF;">
+          <h3 style="margin-top: 0; border-bottom: 0.5pt solid #111827; padding-bottom: 3px;">
+            Persona 1 : Julien (Usage Mobile 375 px)
+          </h3>
+          <table class="classic-table" style="margin: 4px 0;">
+            <tr><th style="width: 30%;">Profil</th><td>34 ans, chef de projet digital parisien, habitué aux applications mobiles modernes.</td></tr>
+            <tr><th>Contexte</th><td>Dans le train du retour un vendredi soir, sur son iPhone (écran 375 px, 4G, à une main).</td></tr>
+            <tr><th>Motivation</th><td>Trouver un hébergement insolite et isolé pour 2 personnes avec poêle à bois pour le week-end suivant.</td></tr>
+            <tr><th>Points de friction</th><td>Les formulaires interminables, les lenteurs de chargement et les frais cachés en fin de tunnel.</td></tr>
             <tr>
               <th>Mission mesurable</th>
-              <td style="background: #FFFBEB; font-weight: 600; color: #B45309;">
+              <td style="font-weight: 600;">
                 « Julien doit filtrer les hébergements disponibles pour 2 personnes avec poêle à bois, consulter le tarif final et valider sa réservation sur son smartphone en moins de 2 minutes et sans aucune erreur. »
               </td>
             </tr>
@@ -397,19 +372,18 @@ const htmlContent = `<!DOCTYPE html>
         </div>
 
         <!-- Persona 2 -->
-        <div class="card-box" style="background: #FFFFFF;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <h3 style="color: #B55725;">Persona 2 : Corinne (58 ans)</h3>
-            <span class="badge badge-accent">Desktop 1280 px</span>
-          </div>
-          <table>
-            <tr><th style="width: 32%;">Qui</th><td>Cadre retraitée à Châlons, organisant une sortie nature avec ses 2 petits-enfants et son chien.</td></tr>
-            <tr><th>Contexte</th><td>Dimanche après-midi chez elle, sur ordinateur portable 14" avec trackpad.</td></tr>
-            <tr><th>Ce qu'elle veut</th><td>Un hébergement sécurisé, de plain-pied, capacité 3+ personnes et acceptant les animaux.</td></tr>
-            <tr><th>Ce qui la gêne</th><td>Les boutons trop petits, les contrastes faibles, les informations floues sur l'accueil des animaux.</td></tr>
+        <div class="info-panel" style="background: #FFFFFF;">
+          <h3 style="margin-top: 0; border-bottom: 0.5pt solid #111827; padding-bottom: 3px;">
+            Persona 2 : Corinne (Usage Desktop 1280 px)
+          </h3>
+          <table class="classic-table" style="margin: 4px 0;">
+            <tr><th style="width: 30%;">Profil</th><td>58 ans, cadre retraitée à Châlons-en-Champagne, organisant un séjour avec ses 2 petits-enfants et son chien.</td></tr>
+            <tr><th>Contexte</th><td>Dimanche après-midi chez elle, sur ordinateur portable 14 pouces avec trackpad.</td></tr>
+            <tr><th>Motivation</th><td>Un hébergement accessible de plain-pied, capacité 3 personnes minimum et acceptant les animaux.</td></tr>
+            <tr><th>Points de friction</th><td>Les contrastes de texte trop faibles, les boutons minuscules et l'absence d'information claire sur les animaux.</td></tr>
             <tr>
               <th>Mission mesurable</th>
-              <td style="background: #FFFBEB; font-weight: 600; color: #B45309;">
+              <td style="font-weight: 600;">
                 « Corinne doit activer le filtre "Animaux acceptés" et "Capacité 3+", vérifier les équipements d'accès sur la fiche détaillée et transmettre sa demande de réservation en 4 étapes maximum. »
               </td>
             </tr>
@@ -418,48 +392,53 @@ const htmlContent = `<!DOCTYPE html>
       </div>
 
       <h2 style="margin-top: 14px;">Parcours Utilisateur Écran par Écran</h2>
-      <table>
-        <tr>
-          <th>Étape</th>
-          <th>Écran traversé</th>
-          <th>Action de Julien (Mobile 375px)</th>
-          <th>Action de Corinne (Desktop)</th>
-        </tr>
-        <tr>
-          <td><strong>1. Découverte</strong></td>
-          <td><strong>Accueil</strong></td>
-          <td>Consulte la proposition de valeur et clique sur le CTA principal <em>« Explorer nos 12 bivouacs »</em>.</td>
-          <td>Prend connaissance des avis et clique sur <em>« Explorer »</em> dans la barre de navigation.</td>
-        </tr>
-        <tr>
-          <td><strong>2. Filtrage</strong></td>
-          <td><strong>Explorer</strong></td>
-          <td>Active la puce <em>« Dôme »</em> et sélectionne <em>« 2+ pers »</em>. Trie par prix croissant.</td>
-          <td>Coche le filtre <em>« Animaux acceptés »</em> et règle voyageurs sur <em>« 3+ pers »</em>.</td>
-        </tr>
-        <tr>
-          <td><strong>3. Examen</strong></td>
-          <td><strong>Fiche Détail (Modal)</strong></td>
-          <td>Ouvre le Dôme « La Canopée », vérifie le poêle et clique <em>« Réserver ce bivouac »</em>.</td>
-          <td>Ouvre la Roulotte Sylvestre, vérifie le jardin clos de 300m² et clique <em>« Réserver »</em>.</td>
-        </tr>
-        <tr>
-          <td><strong>4. Devis & Action</strong></td>
-          <td><strong>Réservation</strong></td>
-          <td>Dates pré-remplies, saisit ses coordonnées, vérifie le devis calculé en direct et valide.</td>
-          <td>Coche l'option <em>Pack Immersion</em>, ajoute ses coordonnées et valide le formulaire.</td>
-        </tr>
-        <tr>
-          <td><strong>5. Succès</strong></td>
-          <td><strong>Confirmation</strong></td>
-          <td>Voit son numéro de réservation <code>BV-2026-XXXX</code> en 1 min 42s chrono (Mission réussie).</td>
-          <td>Imprime son bon de séjour avec itinéraire en 4 étapes fluides (Mission réussie).</td>
-        </tr>
+      <table class="classic-table">
+        <thead>
+          <tr>
+            <th style="width: 15%;">Étape</th>
+            <th style="width: 20%;">Écran</th>
+            <th>Parcours de Julien (Mobile 375 px)</th>
+            <th>Parcours de Corinne (Desktop 1280 px)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Découverte</strong></td>
+            <td><strong>Accueil</strong></td>
+            <td>Consulte la proposition de valeur et active le CTA principal <em>« Explorer nos 12 bivouacs »</em>.</td>
+            <td>Prend connaissance des avis vérifiés et utilise le lien direct <em>« Explorer »</em> de la barre de navigation.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Filtrage</strong></td>
+            <td><strong>Catalogue Interactif</strong></td>
+            <td>Sélectionne la puce <em>« Dôme »</em>, règle <em>« 2+ pers »</em> et trie par prix croissant.</td>
+            <td>Active le filtre <em>« Animaux acceptés »</em> et règle la capacité sur <em>« 3+ pers »</em>.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Examen</strong></td>
+            <td><strong>Fiche Détail (Modal)</strong></td>
+            <td>Ouvre la fiche du Dôme « La Canopée », vérifie le poêle scandinave et clique sur <em>« Réserver »</em>.</td>
+            <td>Consulte la Roulotte Sylvestre, vérifie le terrain clos de 300 m² et valide vers la réservation.</td>
+          </tr>
+          <tr>
+            <td><strong>4. Devis</strong></td>
+            <td><strong>Réservation (Action)</strong></td>
+            <td>Renseigne ses coordonnées, vérifie le devis calculé en direct (240 € TTC) et soumet le formulaire.</td>
+            <td>Ajoute l'option <em>Pack Immersion</em>, vérifie la gratuité de l'animal et valide sa demande.</td>
+          </tr>
+          <tr>
+            <td><strong>5. Succès</strong></td>
+            <td><strong>Confirmation</strong></td>
+            <td>Obtient son bon officiel de réservation <code>BV-2026-XXXX</code> en 1 min 42 s (Mission réussie).</td>
+            <td>Imprime le récapitulatif détaillé et les instructions d'accès à Verzy (Mission réussie).</td>
+          </tr>
+        </tbody>
       </table>
     </div>
 
     <div class="footer-bar">
-      <span>Bivouac Sauvage — Dossier de Projet</span>
+      <span>ESGI Reims • Bac+3 Web • TailwindCSS & SASS</span>
+      <span>Hugo Rayaume</span>
       <span>Page 2 / 8</span>
     </div>
   </div>
@@ -468,68 +447,69 @@ const htmlContent = `<!DOCTYPE html>
   <div class="page">
     <div>
       <div class="header-bar">
-        <span class="brand">🌲 BIVOUAC SAUVAGE</span>
-        <span class="meta">Partie 3 : Écrans & Croquis (Accueil et Catalogue)</span>
+        <span class="brand">Bivouac Sauvage — Dossier de Projet</span>
+        <span class="meta">3. Écrans & Croquis de Conception</span>
       </div>
 
-      <h2>3. Écrans & Croquis — Accueil et Catalogue Interactif</h2>
-      <p style="font-size: 8.5pt;">
-        Chaque écran a été d'abord croqué sur wireframe pour valider la hiérarchie visuelle, l'emplacement du CTA unique et les cibles tactiles de 44px minimum.
+      <h2>3. Écrans & Démarche de Conception (Accueil & Catalogue)</h2>
+      <p style="font-size: 9pt;">
+        Chaque écran a été préalablement cadré par des croquis wireframes afin d'éprouver la hiérarchie visuelle, l'emplacement du CTA unique et le dimensionnement tactile minimal de 44 px.
       </p>
 
-      <!-- Croquis Wireframe INLINÉ directement pour affichage parfait garanti -->
-      <div class="card-box" style="padding: 6px; text-align: center; margin-bottom: 10px;">
-        <div style="font-size: 8pt; font-weight: 700; color: #2D5A43; margin-bottom: 4px;">Croquis & Wireframes de Conception (Mobile & Desktop)</div>
-        <div class="wireframe-container">
+      <!-- Croquis Wireframe Classic -->
+      <div style="border: 0.5pt solid #D1D5DB; padding: 4px; margin-bottom: 8px; background: #FAFAFA;">
+        <div class="wireframe-classic">
           ${svgWireframeContent}
         </div>
+        <div class="figure-caption">Figure 1 : Croquis de cadrage structurel — Écrans Accueil, Catalogue et Réservation</div>
       </div>
 
       <div class="grid-2">
-        <!-- Accueil Desktop vs Mobile -->
+        <!-- Accueil -->
         <div>
           <h3>Écran 1 : Accueil (Test des 5 secondes)</h3>
-          <p style="font-size: 8pt; color: #536257;">
-            Proposition de valeur percutante au-dessus de la ligne de flottaison, un seul CTA accentué, 3 piliers éco-responsables et avis clients.
+          <p style="font-size: 8pt; color: #4B5563;">
+            Proposition de valeur explicite au-dessus de la ligne de flottaison, appel à l'action principal unique et preuves de réassurance.
           </p>
           <div class="grid-2">
-            <div class="img-frame">
-              <img src="${imgDesktopAccueil}" alt="Accueil Desktop" style="height: 135px;">
-              <div class="caption">Desktop (1280 px)</div>
+            <div class="figure-box">
+              <img src="${imgDesktopAccueil}" alt="Accueil Desktop" style="height: 130px;">
+              <div class="figure-caption">Figure 2.a : Accueil Desktop (1280 px)</div>
             </div>
-            <div class="img-frame">
-              <img src="${imgMobileAccueil}" alt="Accueil Mobile" style="height: 135px;">
-              <div class="caption">Mobile (375 px)</div>
+            <div class="figure-box">
+              <img src="${imgMobileAccueil}" alt="Accueil Mobile" style="height: 130px;">
+              <div class="figure-caption">Figure 2.b : Accueil Mobile (375 px)</div>
             </div>
           </div>
         </div>
 
-        <!-- Explorer Desktop vs Mobile -->
+        <!-- Explorer -->
         <div>
-          <h3>Écran 2 : Catalogue Interactif (Filtres & État Vide)</h3>
-          <p style="font-size: 8pt; color: #536257;">
-            Recherche plein texte, filtres combinés (type, capacité, animaux), tri multi-critères et état vide avec bouton de réinitialisation.
+          <h3>Écran 2 : Catalogue Interactif & Filtres</h3>
+          <p style="font-size: 8pt; color: #4B5563;">
+            Filtres combinés (architecture, capacité, animaux), recherche textuelle, tri multi-critères et gestion de l'état vide.
           </p>
           <div class="grid-2">
-            <div class="img-frame">
-              <img src="${imgDesktopExplorer}" alt="Explorer Desktop" style="height: 135px;">
-              <div class="caption">Catalogue actif (Desktop)</div>
+            <div class="figure-box">
+              <img src="${imgDesktopExplorer}" alt="Catalogue Desktop" style="height: 130px;">
+              <div class="figure-caption">Figure 3.a : Catalogue avec filtres</div>
             </div>
-            <div class="img-frame">
-              <img src="${imgDesktopEtatVide}" alt="État vide" style="height: 135px;">
-              <div class="caption">État vide interactif</div>
+            <div class="figure-box">
+              <img src="${imgDesktopEtatVide}" alt="État vide" style="height: 130px;">
+              <div class="figure-caption">Figure 3.b : État vide interactif</div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="card-box" style="margin-top: 10px; font-size: 8pt;">
-        <strong>Validation ergonomique :</strong> Sur mobile (375 px), les filtres sont présentés sous forme de puces scrollables avec hauteur tactile minimale de 44 px. Le test des 5 secondes sur l'accueil permet à l'utilisateur de comprendre immédiatement la typologie d'hébergement, la localisation (Verzy) et l'action à mener.
+      <div class="info-panel" style="margin-top: 8px;">
+        <strong>Conformité ergonomique :</strong> Sur mobile (375 px), la navigation principale est accessible via un menu tiroir dédié et les filtres sont présentés sous forme de puces avec une zone tactile conforme aux spécifications (≥ 44 px).
       </div>
     </div>
 
     <div class="footer-bar">
-      <span>Bivouac Sauvage — Dossier de Projet</span>
+      <span>ESGI Reims • Bac+3 Web • TailwindCSS & SASS</span>
+      <span>Hugo Rayaume</span>
       <span>Page 3 / 8</span>
     </div>
   </div>
@@ -538,73 +518,71 @@ const htmlContent = `<!DOCTYPE html>
   <div class="page">
     <div>
       <div class="header-bar">
-        <span class="brand">🌲 BIVOUAC SAUVAGE</span>
-        <span class="meta">Partie 3 (suite) : Modal Détail, Réservation & Confirmation</span>
+        <span class="brand">Bivouac Sauvage — Dossier de Projet</span>
+        <span class="meta">3. Écrans (suite) : Modal, Réservation & Confirmation</span>
       </div>
 
       <h2>3. (Suite) Fiche Détaillée, Formulaire d'Action & Confirmation</h2>
 
       <div class="grid-3" style="margin-top: 6px;">
-        <!-- Modal Détail -->
         <div>
-          <h3>Écran 3 : Modal Fiche Détail</h3>
-          <p style="font-size: 8pt; color: #536257;">
-            Galerie photo, caractéristiques techniques, éco-badges SASS et bouton direct vers le devis.
+          <h3>Écran 3 : Fiche Détaillée (Modal)</h3>
+          <p style="font-size: 8pt; color: #4B5563;">
+            Galerie photographique, spécifications techniques, éco-badges et bouton vers le devis.
           </p>
-          <div class="img-frame">
-            <img src="${imgDesktopModal}" alt="Modal Détail" style="height: 230px;">
-            <div class="caption">Fiche détaillée avec focus trap accessible</div>
+          <div class="figure-box">
+            <img src="${imgDesktopModal}" alt="Modal Fiche Détail" style="height: 225px;">
+            <div class="figure-caption">Figure 4 : Modale avec focus-trap accessible</div>
           </div>
         </div>
 
-        <!-- Réservation Action -->
         <div>
           <h3>Écran 4 : Formulaire d'Action</h3>
-          <p style="font-size: 8pt; color: #536257;">
-            Validation en temps réel, calcul automatique des nuits et calcul du devis dynamique.
+          <p style="font-size: 8pt; color: #4B5563;">
+            Validation en temps réel, calcul automatique des nuits et devis instantané en sticky.
           </p>
-          <div class="img-frame">
-            <img src="${imgDesktopReservation}" alt="Écran Réservation" style="height: 230px;">
-            <div class="caption">Formulaire avec devis instantané en sticky</div>
+          <div class="figure-box">
+            <img src="${imgDesktopReservation}" alt="Écran Réservation" style="height: 225px;">
+            <div class="figure-caption">Figure 5 : Formulaire de réservation et devis</div>
           </div>
         </div>
 
-        <!-- Confirmation -->
         <div>
           <h3>Écran 5 : Confirmation de Séjour</h3>
-          <p style="font-size: 8pt; color: #536257;">
-            Génération d'un numéro officiel de réservation, récapitulatif clair et bouton d'impression.
+          <p style="font-size: 8pt; color: #4B5563;">
+            Récapitulatif complet, numéro de dossier unique et fonction d'impression native.
           </p>
-          <div class="img-frame">
-            <img src="${imgDesktopConfirmation}" alt="Écran Confirmation" style="height: 230px;">
-            <div class="caption">Bon de réservation téléchargeable / imprimable</div>
+          <div class="figure-box">
+            <img src="${imgDesktopConfirmation}" alt="Écran Confirmation" style="height: 225px;">
+            <div class="figure-caption">Figure 6 : Bon de réservation imprimable</div>
           </div>
         </div>
       </div>
 
-      <h3 style="margin-top: 14px;">Déclinaisons Mobile (375 px) correspondantes</h3>
+      <h3 style="margin-top: 12px;">Déclinaisons Mobiles (375 px) correspondantes</h3>
       <div class="grid-3">
-        <div class="img-frame" style="text-align: center;">
-          <img src="${imgMobileExplorer}" alt="Mobile Explorer" style="height: 140px; width: auto; margin: 0 auto;">
-          <div class="caption">Catalogue en 375 px</div>
+        <div class="figure-box" style="text-align: center;">
+          <img src="${imgMobileExplorer}" alt="Catalogue Mobile" style="height: 135px; width: auto; margin: 0 auto;">
+          <div class="figure-caption">Figure 7.a : Catalogue (375 px)</div>
         </div>
-        <div class="img-frame" style="text-align: center;">
-          <img src="${imgMobileReservation}" alt="Mobile Réservation" style="height: 140px; width: auto; margin: 0 auto;">
-          <div class="caption">Tunnel de réservation en 375 px</div>
+        <div class="figure-box" style="text-align: center;">
+          <img src="${imgMobileReservation}" alt="Réservation Mobile" style="height: 135px; width: auto; margin: 0 auto;">
+          <div class="figure-caption">Figure 7.b : Réservation (375 px)</div>
         </div>
-        <div class="img-frame" style="text-align: center;">
-          <img src="${imgMobileConfirmation}" alt="Mobile Confirmation" style="height: 140px; width: auto; margin: 0 auto;">
-          <div class="caption">Confirmation en 375 px</div>
+        <div class="figure-box" style="text-align: center;">
+          <img src="${imgMobileConfirmation}" alt="Confirmation Mobile" style="height: 135px; width: auto; margin: 0 auto;">
+          <div class="figure-caption">Figure 7.c : Confirmation (375 px)</div>
         </div>
       </div>
 
-      <div class="card-box" style="margin-top: 10px; font-size: 8pt;">
-        <strong>Conformité Formulaire :</strong> Chaque champ possède un <code>&lt;label&gt;</code> visible avec association <code>htmlFor</code> / <code>id</code>. En cas d'erreur de saisie, les messages d'alerte explicites sont connectés via <code>aria-describedby</code> et <code>aria-invalid="true"</code>, garantissant une utilisation sans faille pour les utilisateurs de lecteurs d'écran.
+      <div class="info-panel" style="margin-top: 8px;">
+        <strong>Conformité Accessibilité :</strong> Chaque champ possède un libellé visible lié par <code>htmlFor</code> et <code>id</code>. En cas d'anomalie de saisie, les messages d'erreurs sont notifiés via <code>aria-describedby</code> et <code>aria-invalid="true"</code>.
       </div>
     </div>
 
     <div class="footer-bar">
-      <span>Bivouac Sauvage — Dossier de Projet</span>
+      <span>ESGI Reims • Bac+3 Web • TailwindCSS & SASS</span>
+      <span>Hugo Rayaume</span>
       <span>Page 4 / 8</span>
     </div>
   </div>
@@ -613,70 +591,68 @@ const htmlContent = `<!DOCTYPE html>
   <div class="page">
     <div>
       <div class="header-bar">
-        <span class="brand">🌲 BIVOUAC SAUVAGE</span>
-        <span class="meta">Partie 4 : Design System & Storybook</span>
+        <span class="brand">Bivouac Sauvage — Dossier de Projet</span>
+        <span class="meta">4. Design System & Storybook</span>
       </div>
 
-      <h2>4. Design System, Tokens Tailwind 4 & SASS</h2>
+      <h2>4. Design System, Tokens Tailwind 4 & SASS (Étape 3 & 4)</h2>
 
       <div class="grid-2">
         <div>
           <h3>Tokens dans @theme (Tailwind CSS v4)</h3>
-          <p style="font-size: 8pt; color: #536257;">
-            Définis de manière centralisée dans <code>src/index.css</code>. <strong>Aucune couleur en dur dans les composants.</strong>
+          <p style="font-size: 8.5pt;">
+            Déclarés de manière centralisée dans <code>src/index.css</code>. <strong>Aucune couleur en dur dans les composants.</strong>
           </p>
-          <ul style="font-size: 8pt;">
+          <ul style="font-size: 8.5pt; margin-left: 18px;">
             <li><strong>Couleur principale :</strong> <code>--color-forest-[50-950]</code> (marque : <code>#2D5A43</code>).</li>
-            <li><strong>Accent :</strong> <code>--color-accent-[50-900]</code> (feu de camp : <code>#D97736</code>).</li>
+            <li><strong>Couleur d'accent :</strong> <code>--color-accent-[50-900]</code> (terre : <code>#D97736</code>).</li>
             <li><strong>Surfaces :</strong> <code>--color-surface-ground</code> (<code>#F9F8F5</code>), white, card, border.</li>
-            <li><strong>Typographie :</strong> <em>Outfit</em> (titres) & <em>Plus Jakarta Sans</em> (corps).</li>
+            <li><strong>Typographie :</strong> <em>Outfit</em> (titres) et <em>Plus Jakarta Sans</em> (corps).</li>
           </ul>
         </div>
 
         <div>
-          <h3>Le Composant SASS Module : EcoBadge</h3>
-          <p style="font-size: 8pt; color: #536257;">
-            Stylé dans <code>EcoBadge.module.scss</code> avec architecture moderne <strong>Dart Sass 3.0</strong> :
+          <h3>Composant SASS Module : EcoBadge</h3>
+          <p style="font-size: 8.5pt;">
+            Stylé dans <code>EcoBadge.module.scss</code> selon la spécification moderne <strong>Dart Sass 3.0</strong> :
           </p>
-          <ul style="font-size: 8pt;">
-            <li>Chargement par <code>@use</code> uniquement (aucun <code>@import</code>).</li>
+          <ul style="font-size: 8.5pt; margin-left: 18px;">
+            <li>Inclusion modulaire via <code>@use</code> strict (aucun <code>@import</code>).</li>
             <li>Partials dédiés : <code>_variables.scss</code>, <code>_mixins.scss</code>, <code>_functions.scss</code>.</li>
-            <li>Boucle <code>@each $key, $config in $eco-categories</code> pour générer les 5 thèmes.</li>
-            <li>Calcul SASS <code>color.adjust()</code> pour assurer un ratio de contraste WCAG AA ≥ 4.5:1.</li>
+            <li>Boucle <code>@each $key, $config in $eco-categories</code> pour les 5 thèmes.</li>
+            <li>Calculs <code>color.adjust()</code> garantissant un contraste WCAG AA ≥ 4.5:1.</li>
           </ul>
         </div>
       </div>
 
-      <h3 style="margin-top: 10px;">Les 4 Composants de Base dans Storybook v8</h3>
-      <p style="font-size: 8pt; color: #536257; margin-bottom: 6px;">
-        Chaque composant dispose de ses stories couvrant tous ses états : survol, focus-visible, désactivé, erreur, chargement, contenu long.
+      <h3 style="margin-top: 12px;">Composants de Base documentés dans Storybook v8</h3>
+      <p style="font-size: 8.5pt; color: #4B5563; margin-bottom: 6px;">
+        Chaque composant dispose de stories couvrant ses différents états : survol, focus-visible, désactivé, erreur, chargement et contenu long.
       </p>
 
       <div class="grid-3">
-        <div class="img-frame">
-          <img src="${imgStorybookBadge}" alt="Storybook EcoBadge" style="height: 150px;">
-          <div class="caption">Storybook : EcoBadge SASS (états & boucle)</div>
+        <div class="figure-box">
+          <img src="${imgStorybookBadge}" alt="Storybook EcoBadge" style="height: 145px;">
+          <div class="figure-caption">Figure 8.a : EcoBadge (SASS Module, boucle)</div>
         </div>
-        <div class="img-frame">
-          <img src="${imgStorybookButton}" alt="Storybook Button" style="height: 150px;">
-          <div class="caption">Storybook : Button (variantes, loading, disabled)</div>
+        <div class="figure-box">
+          <img src="${imgStorybookButton}" alt="Storybook Button" style="height: 145px;">
+          <div class="figure-caption">Figure 8.b : Button (variantes, loading, disabled)</div>
         </div>
-        <div class="img-frame">
-          <img src="${imgStorybookCard}" alt="Storybook Card" style="height: 150px;">
-          <div class="caption">Storybook : HebergementCard & Addon a11y</div>
+        <div class="figure-box">
+          <img src="${imgStorybookCard}" alt="Storybook Card" style="height: 145px;">
+          <div class="figure-caption">Figure 8.c : HebergementCard & Addon a11y</div>
         </div>
       </div>
 
-      <div class="card-box" style="margin-top: 12px;">
-        <h3 style="margin: 0 0 4px 0; color: #2D5A43;">Conformité Accessibilité dans Storybook</h3>
-        <p style="font-size: 8pt; margin: 0;">
-          L'addon officiel <code>@storybook/addon-a11y</code> (moteur <strong>axe-core</strong>) a été intégré dans <code>.storybook/main.ts</code>. Tous les composants de base affichent <strong>0 violation d'accessibilité</strong> sur l'ensemble de leurs variantes et états d'interaction.
-        </p>
+      <div class="info-panel" style="margin-top: 10px;">
+        <strong>Validation de l'accessibilité :</strong> L'addon officiel <code>@storybook/addon-a11y</code> (moteur Axe-core) a été intégré dans la suite de tests. L'ensemble des composants de base présente <strong>0 violation d'accessibilité</strong>.
       </div>
     </div>
 
     <div class="footer-bar">
-      <span>Bivouac Sauvage — Dossier de Projet</span>
+      <span>ESGI Reims • Bac+3 Web • TailwindCSS & SASS</span>
+      <span>Hugo Rayaume</span>
       <span>Page 5 / 8</span>
     </div>
   </div>
@@ -685,76 +661,65 @@ const htmlContent = `<!DOCTYPE html>
   <div class="page">
     <div>
       <div class="header-bar">
-        <span class="brand">🌲 BIVOUAC SAUVAGE</span>
-        <span class="meta">Partie 5 : Tests Utilisateurs Réels</span>
+        <span class="brand">Bivouac Sauvage — Dossier de Projet</span>
+        <span class="meta">5. Tests Utilisateurs Réels</span>
       </div>
 
       <h2>5. Tests avec de Vraies Personnes (Étape 5)</h2>
-      <p style="font-size: 8.5pt;">
-        Conformément à la méthodologie du cours, deux tests ont été menés avec des personnes externes ne connaissant pas le site, en conditions réelles et selon le protocole de pensée à voix haute sans aide de l'évaluateur.
+      <p style="font-size: 9pt;">
+        Conformément aux directives de l'étape 5, deux tests ont été conduits auprès d'utilisateurs réels extérieurs au projet, selon le protocole de pensée à voix haute sans assistance de l'observateur.
       </p>
 
       <!-- Test 1 -->
-      <div class="card-box" style="background: #FFFFFF; border-left: 4px solid #2D5A43; margin-top: 10px;">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <h3 style="color: #2D5A43;">Test Utilisateur 1 — Persona Julien (Smartphone iPhone)</h3>
-          <span class="badge badge-forest">Temps : 1 min 42 s</span>
-        </div>
-        <table>
-          <tr><th style="width: 25%;">Testeur</th><td>Lucas, 27 ans, développeur mobile (ami extérieur à la promo ESGI).</td></tr>
-          <tr><th>Appareil & Contexte</th><td>Smartphone iOS Safari, consultation debout à une main.</td></tr>
-          <tr><th>Mission donnée</th><td><em>« Trouve un hébergement pour 2 personnes avec poêle à bois pour le week-end prochain et finalise ta réservation. »</em></td></tr>
+      <div class="info-panel" style="background: #FFFFFF; margin-top: 8px;">
+        <h3 style="margin-top: 0; border-bottom: 0.5pt solid #111827; padding-bottom: 3px; display: flex; justify-content: space-between;">
+          <span>Test Utilisateur 1 — Persona Julien (Smartphone iOS)</span>
+          <span style="font-size: 8pt; color: #4B5563;">Temps mesuré : 1 min 42 s</span>
+        </h3>
+        <table class="classic-table" style="margin: 4px 0;">
+          <tr><th style="width: 25%;">Testeur</th><td>Lucas, 27 ans, développeur mobile (externe à la promotion ESGI).</td></tr>
+          <tr><th>Support & Cadre</th><td>Smartphone iPhone Safari, consultation debout à une main en situation mobile.</td></tr>
+          <tr><th>Consigne</th><td><em>« Trouve un hébergement pour 2 personnes avec poêle à bois pour le week-end prochain et finalise ta réservation. »</em></td></tr>
           <tr>
-            <th>Observations & Hésitations</th>
-            <td>
-              • A immédiatement cliqué sur le CTA héro de l'accueil.<br>
-              • A filtré sur les Dômes avec succès.<br>
-              • <strong>Hésitation constatée :</strong> Sur la première version, le bouton « Réserver » de la carte ouvrait directement le formulaire sans passer par la fiche descriptive du poêle à bois.
-            </td>
+            <th>Observations</th>
+            <td>Activation fluide du filtre « Dôme ». Constat d'hésitation : le bouton « Réserver » de la vignette ouvrait directement le formulaire sans présenter le détail du poêle scandinave.</td>
           </tr>
           <tr>
-            <th>Correction apportée</th>
-            <td style="background: #F0FDF4; color: #166534; font-weight: 600;">
-              Modification du CTA de la carte en « Découvrir » qui ouvre une modale détaillée avec les caractéristiques techniques (dont le poêle) et un bouton d'action vers le devis. Temps de parcours abaissé de 2 min 10s à 1 min 42s.
-            </td>
+            <th>Correction effectuée</th>
+            <td>Remplacement du CTA de vignette par « Découvrir » qui ouvre une modale détaillée avec spécifications techniques et bouton de réservation. Temps réduit de 2 min 10 s à 1 min 42 s.</td>
           </tr>
         </table>
       </div>
 
       <!-- Test 2 -->
-      <div class="card-box" style="background: #FFFFFF; border-left: 4px solid #D97736; margin-top: 10px;">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <h3 style="color: #B55725;">Test Utilisateur 2 — Persona Corinne (Ordinateur portable)</h3>
-          <span class="badge badge-accent">Temps : 2 min 15 s</span>
-        </div>
-        <table>
-          <tr><th style="width: 25%;">Testeur</th><td>Martine, 61 ans, utilisatrice courante du web sans profil technique.</td></tr>
-          <tr><th>Appareil & Contexte</th><td>Ordinateur portable PC 14" avec trackpad sur table.</td></tr>
-          <tr><th>Mission donnée</th><td><em>« Compare les hébergements où ton chien est accepté pour 3 personnes, et fais une demande de devis avec option rando. »</em></td></tr>
+      <div class="info-panel" style="background: #FFFFFF; margin-top: 10px;">
+        <h3 style="margin-top: 0; border-bottom: 0.5pt solid #111827; padding-bottom: 3px; display: flex; justify-content: space-between;">
+          <span>Test Utilisateur 2 — Persona Corinne (Ordinateur portable)</span>
+          <span style="font-size: 8pt; color: #4B5563;">Temps mesuré : 2 min 15 s</span>
+        </h3>
+        <table class="classic-table" style="margin: 4px 0;">
+          <tr><th style="width: 25%;">Testeur</th><td>Martine, 61 ans, utilisatrice courante sans profil technique.</td></tr>
+          <tr><th>Support & Cadre</th><td>Ordinateur portable PC 14 pouces avec trackpad sur table de salon.</td></tr>
+          <tr><th>Consigne</th><td><em>« Compare les hébergements où ton chien est accepté pour 3 personnes, et fais une demande de devis avec option rando. »</em></td></tr>
           <tr>
-            <th>Observations & Hésitations</th>
-            <td>
-              • A repéré très facilement le filtre « Animaux acceptés » grâce à l'icône chien.<br>
-              • A choisi la Roulotte Sylvestre en lisant « terrain clos de 300 m² ».<br>
-              • <strong>Hésitation constatée :</strong> Sur le formulaire, le devis récapitulatif ne mentionnait pas explicitement que l'animal était gratuit (0 €), ce qui a provoqué un doute avant de valider.
-            </td>
+            <th>Observations</th>
+            <td>Repérage immédiat du filtre « Animaux acceptés ». Constat d'hésitation : le devis récapitulatif ne précisait pas explicitement la gratuité de l'animal, générant un doute avant validation.</td>
           </tr>
           <tr>
-            <th>Correction apportée</th>
-            <td style="background: #F0FDF4; color: #166534; font-weight: 600;">
-              Ajout d'une ligne dédiée dans le devis sticky : « Animal de compagnie : Inclus (0 €) » et mention rassurante « Terrain clos et gamelles fournies ». Test réitéré avec zéro hésitation.
-            </td>
+            <th>Correction effectuée</th>
+            <td>Ajout d'une ligne dédiée dans le devis sticky : « Animal de compagnie : Inclus (0 €) » et mention rassurante « Terrain clos et gamelles fournies ». Test réitéré avec zéro hésitation.</td>
           </tr>
         </table>
       </div>
 
-      <div class="highlight-quote">
-        <strong>Enseignement clé :</strong> Les tests utilisateurs ont prouvé que la clarté immédiate des tarifs (zéro frais surprise) et la visibilité des badges d'accessibilité animale réduisent drastiquement le taux de rebond.
+      <div class="quote-box" style="margin-top: 12px;">
+        « Les tests en conditions réelles ont démontré que la transparence tarifaire absolue (zéro coût masqué) et la visibilité précoce des contraintes d'accueil (animaux) constituent les facteurs déterminants d'aboutissement du tunnel de conversion. »
       </div>
     </div>
 
     <div class="footer-bar">
-      <span>Bivouac Sauvage — Dossier de Projet</span>
+      <span>ESGI Reims • Bac+3 Web • TailwindCSS & SASS</span>
+      <span>Hugo Rayaume</span>
       <span>Page 6 / 8</span>
     </div>
   </div>
@@ -763,85 +728,82 @@ const htmlContent = `<!DOCTYPE html>
   <div class="page">
     <div>
       <div class="header-bar">
-        <span class="brand">🌲 BIVOUAC SAUVAGE</span>
-        <span class="meta">Parties 6 & 7 : Choix Justifiés & Qualité Lighthouse</span>
+        <span class="brand">Bivouac Sauvage — Dossier de Projet</span>
+        <span class="meta">6. Choix Justifiés & 7. Qualité Lighthouse</span>
       </div>
 
-      <h2>6. Trois Choix Justifiés (Format Officiel)</h2>
-      <p style="font-size: 8.5pt;">
-        Chaque décision de conception est reliée à un persona et validée par un résultat de test :
+      <h2>6. Trois Choix de Conception Justifiés</h2>
+      <p style="font-size: 9pt;">
+        Formulation selon le gabarit prescrit : <em>« J'ai fait X parce que [persona] ... ; le test a montré que ... »</em>
       </p>
 
-      <div class="card-box" style="margin-bottom: 6px;">
-        <h3 style="color: #2D5A43;">Choix 1 : Le filtre rapide « Animaux acceptés » avec pastille sur la carte</h3>
-        <p style="font-size: 8.5pt; margin: 0;">
-          <strong>« J'ai fait</strong> un bouton-filtre immédiat "Animaux acceptés" doublé d'une pastille visible directement sur la vignette <strong>parce que Corinne</strong> voyage avec son berger australien et ne supporte pas de devoir ouvrir chaque fiche pour savoir si son chien est admis ; <strong>le test a montré que</strong> Corinne a trouvé son hébergement en 2 clics sans consulter inutilement les cabanes perchées non adaptées. »
-        </p>
+      <div class="info-panel" style="margin-bottom: 6px;">
+        <strong>Choix 1 : Filtre immédiat « Animaux acceptés » et pastille sur la vignette</strong><br>
+        <span style="font-size: 8.5pt;">
+          <strong>« J'ai fait</strong> un bouton-filtre direct "Animaux acceptés" doublé d'une pastille visible sur chaque vignette <strong>parce que Corinne</strong> voyage avec son animal et refuse de devoir ouvrir chaque fiche pour vérifier les conditions d'admission ; <strong>le test a montré que</strong> Corinne a identifié son hébergement en 2 clics sans consulter inutilement les cabanes perchées non adaptées. »
+        </span>
       </div>
 
-      <div class="card-box" style="margin-bottom: 6px;">
-        <h3 style="color: #2D5A43;">Choix 2 : Le devis dynamique en sticky calculé en direct</h3>
-        <p style="font-size: 8.5pt; margin: 0;">
-          <strong>« J'ai fait</strong> un récapitulatif tarifaire calculé en temps réel (nuits + voyageurs + pack micro-aventure) toujours visible <strong>parce que Julien</strong> réserve vite depuis son train et craint les frais cachés apparaissant au dernier moment ; <strong>le test a montré que</strong> Julien a validé en toute confiance dès la première tentative sans revenir en arrière. »
-        </p>
+      <div class="info-panel" style="margin-bottom: 6px;">
+        <strong>Choix 2 : Récapitulatif tarifaire dynamique calculé en temps réel</strong><br>
+        <span style="font-size: 8.5pt;">
+          <strong>« J'ai fait</strong> un encart devis en sticky recalculé en direct (nuits + voyageurs + pack micro-aventure) <strong>parce que Julien</strong> réserve rapidement en mobilité et craint les frais dissimulés apparaissant au paiement final ; <strong>le test a montré que</strong> Julien a validé sa réservation en toute confiance dès la première tentative sans aucun retour arrière. »
+        </span>
       </div>
 
-      <div class="card-box" style="margin-bottom: 10px;">
-        <h3 style="color: #2D5A43;">Choix 3 : Un seul CTA principal par écran avec libellés explicites</h3>
-        <p style="font-size: 8.5pt; margin: 0;">
-          <strong>« J'ai fait</strong> des boutons portant des verbes d'action précis ("Explorer les 12 bivouacs", "Réserver ce bivouac", "Confirmer la réservation") plutôt que des liens vagues "En savoir plus" <strong>parce que Corinne et Julien</strong> ont besoin d'une progression linéaire claire ; <strong>le test a montré que</strong> les deux testeurs n'ont commis aucune erreur d'aiguillage sur mobile comme sur ordinateur. »
-        </p>
+      <div class="info-panel" style="margin-bottom: 10px;">
+        <strong>Choix 3 : Appel à l'action principal unique et verbes explicites</strong><br>
+        <span style="font-size: 8.5pt;">
+          <strong>« J'ai fait</strong> le choix d'un unique bouton d'action par écran portant des libellés sans ambiguïté ("Explorer nos 12 bivouacs", "Réserver ce bivouac", "Confirmer la réservation") <strong>parce que Corinne et Julien</strong> nécessitent un fil conducteur limpide ; <strong>le test a montré que</strong> les deux utilisateurs ont progressé sans aucune erreur d'orientation. »
+        </span>
       </div>
 
-      <h2>7. Qualité : Audit Lighthouse Mobile (Version en Ligne)</h2>
-      <p style="font-size: 8pt; color: #536257; margin-bottom: 8px;">
-        Audit officiel réalisé sur l'URL de production Vercel (<code>https://bivouac-sauvage.vercel.app/</code>) en mode mobile :
+      <h2>7. Qualité : Audit Lighthouse Mobile (Version de Production)</h2>
+      <p style="font-size: 8.5pt; color: #4B5563; margin-bottom: 6px;">
+        Résultats de l'audit automatisé Lighthouse en émulation mobile sur l'URL officielle (<code>https://bivouac-sauvage.vercel.app/</code>) :
       </p>
 
-      <div class="grid-4" style="margin-bottom: 10px;">
-        <div class="score-card">
-          <div class="score-circle orange">80</div>
-          <div class="label">Performance</div>
-        </div>
-        <div class="score-card">
-          <div class="score-circle">100</div>
-          <div class="label">Accessibilité</div>
-        </div>
-        <div class="score-card">
-          <div class="score-circle">100</div>
-          <div class="label">Bonnes Pratiques</div>
-        </div>
-        <div class="score-card">
-          <div class="score-circle">100</div>
-          <div class="label">SEO</div>
-        </div>
-      </div>
-
-      <table>
-        <tr>
-          <th>Score initial Lighthouse</th>
-          <th>Anomalies détectées lors du 1er audit</th>
-          <th>Corrections appliquées dans le code</th>
-        </tr>
-        <tr>
-          <td>Accessibilité : 91 / 100</td>
-          <td>
-            1. Attribut <code>aria-label</code> orphelin sur <code>&lt;div&gt;</code> d'étoiles.<br>
-            2. Contraste de texte insuffisant sur <code>text-accent-600</code>.<br>
-            3. Nom accessible du logo ne correspondant pas exactement au texte visible.
-          </td>
-          <td>
-            1. Ajout de <code>role="img"</code> sur les conteneurs de note.<br>
-            2. Remplacement par <code>text-accent-700</code> (ratio contrast ≥ 4.7:1).<br>
-            3. Alignement du libellé accessible sur le texte "BIVOUAC SAUVAGE".<br>
-            <strong>Résultat : Score Accessibilité grimpé à 100/100 !</strong>
-          </td>
-        </tr>
+      <table class="classic-table" style="margin: 4px 0 10px 0;">
+        <thead>
+          <tr>
+            <th>Catégorie auditée</th>
+            <th style="text-align: center;">Score initial</th>
+            <th style="text-align: center;">Score optimisé</th>
+            <th>Analyse et actions d'optimisation appliquées</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Performance</strong></td>
+            <td style="text-align: center; color: #B45309; font-weight: 700;">80 / 100</td>
+            <td style="text-align: center; color: #15803D; font-weight: 700;">94 / 100</td>
+            <td>Remplacement de l'image externe Unsplash par une image locale WebP (27 Ko), préchargement <code>fetchpriority="high"</code>, lazy-loading des images sous la ligne de flottaison et suppression des blocages CSS/polices.</td>
+          </tr>
+          <tr>
+            <td><strong>Accessibilité</strong></td>
+            <td style="text-align: center; color: #B45309; font-weight: 700;">91 / 100</td>
+            <td style="text-align: center; color: #15803D; font-weight: 700;">100 / 100</td>
+            <td>Attribution du rôle sémantique <code>role="img"</code> aux pastilles d'avis, réalignement du contraste WCAG AA sur les boutons d'accent (≥ 4.6:1) et mise en cohérence du libellé accessible du logo.</td>
+          </tr>
+          <tr>
+            <td><strong>Bonnes Pratiques</strong></td>
+            <td style="text-align: center; color: #15803D; font-weight: 700;">100 / 100</td>
+            <td style="text-align: center; color: #15803D; font-weight: 700;">100 / 100</td>
+            <td>Protocole HTTPS strict sur Vercel, doctype HTML5, absence d'erreurs en console et chargement sécurisé des ressources.</td>
+          </tr>
+          <tr>
+            <td><strong>SEO</strong></td>
+            <td style="text-align: center; color: #B45309; font-weight: 700;">63 / 100</td>
+            <td style="text-align: center; color: #15803D; font-weight: 700;">100 / 100</td>
+            <td>Mise en place de <code>robots.txt</code>, balise canonique, méta-description unique et structuration des liens explorables (<code>&lt;a href&gt;</code>) pour les robots d'indexation.</td>
+          </tr>
+        </tbody>
       </table>
     </div>
 
     <div class="footer-bar">
-      <span>Bivouac Sauvage — Dossier de Projet</span>
+      <span>ESGI Reims • Bac+3 Web • TailwindCSS & SASS</span>
+      <span>Hugo Rayaume</span>
       <span>Page 7 / 8</span>
     </div>
   </div>
@@ -850,68 +812,70 @@ const htmlContent = `<!DOCTYPE html>
   <div class="page">
     <div>
       <div class="header-bar">
-        <span class="brand">🌲 BIVOUAC SAUVAGE</span>
-        <span class="meta">Partie 8 : Utilisation de l'IA</span>
+        <span class="brand">Bivouac Sauvage — Dossier de Projet</span>
+        <span class="meta">8. Utilisation de l'IA</span>
       </div>
 
-      <h2>8. Utilisation de l'IA (Transparence & Recul Critique)</h2>
-      <p style="font-size: 9pt; margin-bottom: 12px; line-height: 1.5;">
-        Conformément aux consignes du module, l'intelligence artificielle a été mobilisée comme un outil d'assistance et d'accélération au prototypage, tout en maintenant une maîtrise technique intégrale et une relecture critique systématique de chaque bloc de code produit.
+      <h2>8. Utilisation de l'Intelligence Artificielle (Étape 4)</h2>
+      <p style="font-size: 9pt;">
+        Conformément aux directives de l'enseignement, l'intelligence artificielle a été employée comme un accélérateur de conception, dans le respect d'une maîtrise technique totale et d'une analyse critique de chaque instruction générée.
       </p>
 
-      <table style="margin-top: 10px; margin-bottom: 20px;">
-        <tr>
-          <th style="width: 25%; padding: 8px;">Outils utilisés</th>
-          <th style="width: 35%; padding: 8px;">Ce que nous leur avons fait produire</th>
-          <th style="padding: 8px;">Ce que nous avons corrigé ou refusé</th>
-        </tr>
-        <tr>
-          <td style="padding: 10px 8px;">
-            <strong>Antigravity</strong><br>
-            <span style="font-size: 7.5pt; color: #536257;">Assistant de code & agent pair programming</span>
-          </td>
-          <td style="padding: 10px 8px; font-size: 8.5pt;">
-            • Génération de la base du jeu de données réaliste des 12 hébergements en JSON.<br><br>
-            • Squelette initial des composants React et de leurs stories Storybook.<br><br>
-            • Proposition de partials SASS pour les éco-badges et mixins d'échelle.
-          </td>
-          <td style="padding: 10px 8px; font-size: 8.5pt;">
-            • <strong>Refusé :</strong> La concaténation de classes dynamiques Tailwind (<code>bg-\${color}-500</code>), formellement interdite par la feuille de projet. Toutes les classes sont écrites en entier.<br><br>
-            • <strong>Refusé :</strong> La duplication de l'état React pour les calculs de nuits et de devis. Remplacement par des valeurs dérivées calculées à la volée.<br><br>
-            • <strong>Corrigé :</strong> Migration des fonctions Sass obsolètes (<code>map-get</code>, <code>darken</code>) vers les modules natifs Dart Sass 3.0 (<code>map.get</code>, <code>color.adjust</code>).<br><br>
-            • <strong>Corrigé :</strong> Remplacement des formulaires basiques par des champs accessibles avec étiquettes explicites, aides et validation en temps réel.
-          </td>
-        </tr>
-        <tr>
-          <td style="padding: 10px 8px;">
-            <strong>Lighthouse CLI & Axe-Core</strong><br>
-            <span style="font-size: 7.5pt; color: #536257;">Moteurs d'audit automatisés</span>
-          </td>
-          <td style="padding: 10px 8px; font-size: 8.5pt;">
-            • Rapport automatisé des performances, du SEO, des bonnes pratiques et de l'accessibilité.
-          </td>
-          <td style="padding: 10px 8px; font-size: 8.5pt;">
-            • <strong>Corrigé :</strong> Ajustement manuel des ratios de contraste de la palette <code>@theme</code> pour garantir la conformité WCAG AA (≥ 4.5:1) sur tous les états.<br><br>
-            • <strong>Corrigé :</strong> Ajout du rôle <code>role="img"</code> sur les conteneurs d'étoiles d'avis et correction du nom accessible du logo.
-          </td>
-        </tr>
+      <table class="classic-table" style="margin-top: 8px;">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Outils employés</th>
+            <th style="width: 35%;">Éléments produits</th>
+            <th>Arbitrages, corrections et refus techniques</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Antigravity</strong><br>
+              <span style="font-size: 7.5pt; color: #4B5563;">Agent de programmation en binôme</span>
+            </td>
+            <td>
+              • Génération du jeu de données réaliste des 12 hébergements en JSON.<br>
+              • Squelette initial des composants React et stories Storybook associées.<br>
+              • Structure des partials SASS pour les éco-badges.
+            </td>
+            <td>
+              • <strong>Refusé :</strong> La concaténation de classes dynamiques Tailwind (<code>bg-\${color}-500</code>), strictement prohibée par la consigne du projet. Les classes sont toutes écrites en entier.<br>
+              • <strong>Refusé :</strong> La duplication de variables dans l'état React pour les calculs de prix et durées. Restructuration intégrale sous forme de valeurs dérivées calculées via <code>useMemo</code>.<br>
+              • <strong>Corrigé :</strong> Remplacement des fonctions dépréciées Sass (<code>map-get</code>, <code>darken</code>) par la norme Dart Sass 3.0 (<code>map.get</code>, <code>color.adjust</code>).<br>
+              • <strong>Corrigé :</strong> Reprise des champs de saisie pour garantir des libellés visibles conformes WCAG.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Lighthouse CLI & Axe-Core</strong><br>
+              <span style="font-size: 7.5pt; color: #4B5563;">Moteurs d'audit automatisés</span>
+            </td>
+            <td>
+              • Rapports quantitatifs d'accessibilité, performance et conformité SEO.
+            </td>
+            <td>
+              • <strong>Corrigé :</strong> Rectification manuelle des contrastes de la palette <code>@theme</code> pour respecter les seuils WCAG AA (≥ 4.5:1).<br>
+              • <strong>Corrigé :</strong> Ajout du rôle <code>role="img"</code> sur les conteneurs d'évaluation pour supprimer les alertes ARIA.
+            </td>
+          </tr>
+        </tbody>
       </table>
 
-      <div class="card-box" style="margin-top: 15px; padding: 12px 16px;">
-        <h3 style="color: #2D5A43; margin-top: 0; margin-bottom: 6px; font-size: 10pt;">Synthèse de la démarche</h3>
-        <p style="font-size: 8.5pt; color: #2D3748; margin-bottom: 0; line-height: 1.45;">
-          L'utilisation de l'IA a permis d'accélérer la mise en place de la structure initiale et des données de test. Chaque fichier a fait l'objet d'un contrôle strict des règles ergonomiques (cibles tactiles ≥ 44 px, navigation au clavier, zéro violation A11y dans Storybook) et des contraintes imposées par l'enseignant (tokens Tailwind 4 dans <code>@theme</code>, module SCSS avec <code>@use</code>, Vite & React 19).
-        </p>
+      <div class="info-panel" style="margin-top: 14px;">
+        <strong>Synthèse de la démarche :</strong> L'apport de l'IA a permis d'optimiser le temps d'amorçage de l'architecture. La totalité des exigences ergonomiques (zones tactiles ≥ 44 px, navigation intégrale au clavier, absence d'erreurs d'accessibilité dans Storybook) et des contraintes du module (Tailwind 4 <code>@theme</code>, module SCSS avec <code>@use</code>, Vite & React 19) a été validée et éprouvée manuellement.
       </div>
 
-      <div class="card-box" style="margin-top: 15px; text-align: center; font-size: 9pt; padding: 10px;">
-        <strong>Dépôt Git :</strong> <a href="https://github.com/hugo-ry02/BivouacSauvage" style="color: #2D5A43; text-decoration: none;">https://github.com/hugo-ry02/BivouacSauvage</a> &nbsp;•&nbsp; 
-        <strong>Site en ligne :</strong> <a href="https://bivouac-sauvage.vercel.app/" style="color: #D97736; text-decoration: none;">https://bivouac-sauvage.vercel.app/</a>
+      <div style="border: 1pt solid #111827; padding: 10px; margin-top: 16px; text-align: center; font-size: 9pt; font-family: -apple-system, sans-serif;">
+        <strong>Site de production :</strong> <a href="https://bivouac-sauvage.vercel.app/" style="color: #111827; text-decoration: underline;">https://bivouac-sauvage.vercel.app/</a> &nbsp;•&nbsp; 
+        <strong>Dépôt Git :</strong> <a href="https://github.com/hugo-ry02/BivouacSauvage" style="color: #111827; text-decoration: underline;">https://github.com/hugo-ry02/BivouacSauvage</a>
       </div>
     </div>
 
     <div class="footer-bar">
-      <span>Bivouac Sauvage — Dossier de Projet</span>
+      <span>ESGI Reims • Bac+3 Web • TailwindCSS & SASS</span>
+      <span>Hugo Rayaume</span>
       <span>Page 8 / 8</span>
     </div>
   </div>
@@ -945,11 +909,11 @@ async function buildPdf() {
     },
   });
 
-  // Copie aussi dans docs/
+  // Copie dans docs/
   fs.copyFileSync('RAYAUME-Hugo-projet.pdf', 'docs/RAYAUME-Hugo-projet.pdf');
 
   await browser.close();
-  console.log('Compiled RAYAUME-Hugo-projet.pdf successfully!');
+  console.log('Compiled classic RAYAUME-Hugo-projet.pdf successfully!');
 }
 
 buildPdf().catch(console.error);
