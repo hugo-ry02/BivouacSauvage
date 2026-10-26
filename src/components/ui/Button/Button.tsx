@@ -33,7 +33,7 @@ export const Button: React.FC<ButtonProps> = ({
     secondary:
       'bg-forest-50 hover:bg-forest-100 text-forest-800 border border-forest-200 active:bg-forest-200 focus-visible:outline-forest-700',
     accent:
-      'bg-accent-600 hover:bg-accent-700 text-surface-white active:bg-accent-800 shadow-sm focus-visible:outline-accent-600',
+      'bg-accent-700 hover:bg-accent-800 text-white active:bg-accent-900 shadow-sm focus-visible:outline-accent-700',
     ghost:
       'bg-transparent hover:bg-forest-50 text-forest-800 active:bg-forest-100 focus-visible:outline-forest-700',
     danger:
