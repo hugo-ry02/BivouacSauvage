@@ -1,0 +1,92 @@
+@use 'sass:map';
+@use 'sass:color';
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
+@use '../../../styles/functions' as f;
+
+// Conteneur de base du badge écologique
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 600;
+  border-radius: v.$radius-full;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  user-select: none;
+  transition: all v.$transition-default;
+
+  @include m.badge-size('md');
+  @include m.focus-ring(v.$accent-fire);
+
+  // Tailles via mixin
+  &--sm {
+    @include m.badge-size('sm');
+  }
+
+  &--md {
+    @include m.badge-size('md');
+  }
+
+  &--lg {
+    @include m.badge-size('lg');
+  }
+
+  // Puce lumineuse / pastille indicatrice
+  &__dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: v.$radius-full;
+    flex-shrink: 0;
+  }
+
+  // Boucle SASS avancée : génère chaque thème de catégorie écologique avec contraste garanti
+  @each $key, $config in v.$eco-categories {
+    $bg-color: map.get($config, 'bg');
+    $text-color: map.get($config, 'text');
+    $border-color: map.get($config, 'border');
+    $dot-color: map.get($config, 'dot');
+
+    &--#{$key} {
+      background-color: $bg-color;
+      color: f.ensure-contrast($text-color, $bg-color);
+      border-color: $border-color;
+
+      .badge__dot {
+        background-color: $dot-color;
+        box-shadow: 0 0 0 2px rgba($dot-color, 0.2);
+      }
+
+      &.badge--interactive {
+        cursor: pointer;
+
+        &:hover {
+          background-color: color.adjust($bg-color, $lightness: -4%);
+          transform: translateY(-1px);
+          @include m.natural-shadow(1);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+
+      &.badge--selected {
+        background-color: color.adjust($bg-color, $lightness: -8%);
+        border-color: color.adjust($border-color, $lightness: -15%);
+        box-shadow: 0 0 0 2px rgba($dot-color, 0.35);
+      }
+    }
+  }
+
+  // Variante neutre / générique
+  &--neutral {
+    background-color: #f1ede4;
+    color: v.$text-dark;
+    border-color: #e3ded5;
+
+    .badge__dot {
+      background-color: v.$text-muted;
+    }
+  }
+}
