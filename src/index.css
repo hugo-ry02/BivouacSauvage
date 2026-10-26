@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+
+  /* Nuances couleur principale : Vert Canopée */
+  --color-forest-50: #f2f7f4;
+  --color-forest-100: #e2ede6;
+  --color-forest-200: #c6dcce;
+  --color-forest-300: #9dc2aa;
+  --color-forest-400: #6ea281;
+  --color-forest-500: #498460;
+  --color-forest-600: #376a4c;
+  --color-forest-700: #2d5a43; /* Couleur de marque principale */
+  --color-forest-800: #254635;
+  --color-forest-900: #1f3a2d;
+  --color-forest-950: #102018;
+
+  /* Accent : Ocre Feu de Camp */
+  --color-accent-50: #fdf8f4;
+  --color-accent-100: #fbf0e6;
+  --color-accent-200: #f6dec8;
+  --color-accent-300: #efc4a1;
+  --color-accent-400: #e6a06f;
+  --color-accent-500: #dd7c42;
+  --color-accent-600: #d97736; /* Accent principal */
+  --color-accent-700: #b55725;
+  --color-accent-800: #904523;
+  --color-accent-900: #753b21;
+
+  /* Couleurs de surface et de fond */
+  --color-surface-ground: #f9f8f5;
+  --color-surface-white: #ffffff;
+  --color-surface-card: #ffffff;
+  --color-surface-muted: #f1ede4;
+  --color-surface-border: #e3ded5;
+
+  /* Couleurs de texte accessibles */
+  --color-text-main: #1a241e;
+  --color-text-muted: #536257;
+  --color-text-subtle: #7a8a7f;
+  --color-text-inverse: #f9f8f5;
+
+  /* Statuts */
+  --color-status-success: #15803d;
+  --color-status-warning: #b45309;
+  --color-status-error: #b91c1c;
+}
+
+/* Règles globales d'ergonomie et accessibilité */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  background-color: var(--color-surface-ground);
+}
+
+/* Anneau de focus visible et cohérent sur tous les éléments interactifs */
+:focus-visible {
+  outline: 2px solid var(--color-accent-600);
+  outline-offset: 2px;
+}
+
+/* Skip link pour l'accessibilité au clavier */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background-color: var(--color-forest-700);
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  z-index: 1000;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
