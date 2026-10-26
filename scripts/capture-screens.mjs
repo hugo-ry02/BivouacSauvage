@@ -52,7 +52,12 @@ async function run() {
     btn?.click();
   });
   await new Promise(r => setTimeout(r, 600));
-  await pageD.screenshot({ path: path.join(OUT_DIR, 'desktop-modal-detail.png') });
+  const modalEl = await pageD.$('[role="dialog"] .bg-surface-white');
+  if (modalEl) {
+    await modalEl.screenshot({ path: path.join(OUT_DIR, 'desktop-modal-detail.png') });
+  } else {
+    await pageD.screenshot({ path: path.join(OUT_DIR, 'desktop-modal-detail.png') });
+  }
   console.log('Saved desktop-modal-detail.png');
 
   // D5: Reservation
@@ -61,6 +66,8 @@ async function run() {
     btn?.click();
   });
   await new Promise(r => setTimeout(r, 600));
+  await pageD.setViewport({ width: 1280, height: 1250 });
+  await new Promise(r => setTimeout(r, 300));
   await pageD.screenshot({ path: path.join(OUT_DIR, 'desktop-reservation.png') });
   console.log('Saved desktop-reservation.png');
 
@@ -74,6 +81,8 @@ async function run() {
     submitBtn?.click();
   });
   await new Promise(r => setTimeout(r, 1200));
+  await pageD.setViewport({ width: 1280, height: 1050 });
+  await new Promise(r => setTimeout(r, 300));
   await pageD.screenshot({ path: path.join(OUT_DIR, 'desktop-confirmation.png') });
   console.log('Saved desktop-confirmation.png');
 

@@ -191,15 +191,38 @@ const htmlContent = `<!DOCTYPE html>
     /* Cadres et figures sobres */
     .figure-box {
       border: 0.5pt solid #D1D5DB;
-      background: #FFFFFF;
-      padding: 3px;
+      background: #FAFAFA;
+      padding: 4px;
       margin-bottom: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
     .figure-box img {
-      width: 100%;
+      max-width: 100%;
+      height: auto;
       display: block;
-      object-fit: cover;
+      object-fit: contain; /* NEVER CROP/CUT OFF ANY SCREEN */
+    }
+
+    .mobile-frame {
+      border: 1pt solid #CBD5E1;
+      border-radius: 6px;
+      background: #FFFFFF;
+      padding: 2px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      display: inline-block;
+    }
+
+    .mobile-frame img {
+      height: 110px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      border-radius: 4px;
     }
 
     .figure-caption {
@@ -471,14 +494,14 @@ const htmlContent = `<!DOCTYPE html>
           <p style="font-size: 8pt; color: #4B5563;">
             Proposition de valeur explicite au-dessus de la ligne de flottaison, appel à l'action principal unique et preuves de réassurance.
           </p>
-          <div class="grid-2">
-            <div class="figure-box">
-              <img src="${imgDesktopAccueil}" alt="Accueil Desktop" style="height: 130px;">
+          <div style="display: flex; gap: 8px; align-items: flex-start;">
+            <div class="figure-box" style="flex: 1;">
+              <img src="${imgDesktopAccueil}" alt="Accueil Desktop" style="max-height: 105px; width: auto; max-width: 100%; object-fit: contain;">
               <div class="figure-caption">Figure 2.a : Accueil Desktop (1280 px)</div>
             </div>
-            <div class="figure-box">
-              <img src="${imgMobileAccueil}" alt="Accueil Mobile" style="height: 130px;">
-              <div class="figure-caption">Figure 2.b : Accueil Mobile (375 px)</div>
+            <div class="figure-box mobile-frame" style="width: auto; flex-shrink: 0; padding: 2px;">
+              <img src="${imgMobileAccueil}" alt="Accueil Mobile" style="height: 105px; width: auto; object-fit: contain;">
+              <div class="figure-caption">Figure 2.b : Mobile</div>
             </div>
           </div>
         </div>
@@ -491,11 +514,11 @@ const htmlContent = `<!DOCTYPE html>
           </p>
           <div class="grid-2">
             <div class="figure-box">
-              <img src="${imgDesktopExplorer}" alt="Catalogue Desktop" style="height: 130px;">
+              <img src="${imgDesktopExplorer}" alt="Catalogue Desktop" style="max-height: 105px; width: auto; max-width: 100%; object-fit: contain;">
               <div class="figure-caption">Figure 3.a : Catalogue avec filtres</div>
             </div>
             <div class="figure-box">
-              <img src="${imgDesktopEtatVide}" alt="État vide" style="height: 130px;">
+              <img src="${imgDesktopEtatVide}" alt="État vide" style="max-height: 105px; width: auto; max-width: 100%; object-fit: contain;">
               <div class="figure-caption">Figure 3.b : État vide interactif</div>
             </div>
           </div>
@@ -531,7 +554,7 @@ const htmlContent = `<!DOCTYPE html>
             Galerie photographique, spécifications techniques, éco-badges et bouton vers le devis.
           </p>
           <div class="figure-box">
-            <img src="${imgDesktopModal}" alt="Modal Fiche Détail" style="height: 225px;">
+            <img src="${imgDesktopModal}" alt="Modal Fiche Détail" style="max-height: 135px; width: auto; max-width: 100%; object-fit: contain;">
             <div class="figure-caption">Figure 4 : Modale avec focus-trap accessible</div>
           </div>
         </div>
@@ -542,7 +565,7 @@ const htmlContent = `<!DOCTYPE html>
             Validation en temps réel, calcul automatique des nuits et devis instantané en sticky.
           </p>
           <div class="figure-box">
-            <img src="${imgDesktopReservation}" alt="Écran Réservation" style="height: 225px;">
+            <img src="${imgDesktopReservation}" alt="Écran Réservation" style="max-height: 135px; width: auto; max-width: 100%; object-fit: contain;">
             <div class="figure-caption">Figure 5 : Formulaire de réservation et devis</div>
           </div>
         </div>
@@ -553,24 +576,30 @@ const htmlContent = `<!DOCTYPE html>
             Récapitulatif complet, numéro de dossier unique et fonction d'impression native.
           </p>
           <div class="figure-box">
-            <img src="${imgDesktopConfirmation}" alt="Écran Confirmation" style="height: 225px;">
+            <img src="${imgDesktopConfirmation}" alt="Écran Confirmation" style="max-height: 135px; width: auto; max-width: 100%; object-fit: contain;">
             <div class="figure-caption">Figure 6 : Bon de réservation imprimable</div>
           </div>
         </div>
       </div>
 
-      <h3 style="margin-top: 12px;">Déclinaisons Mobiles (375 px) correspondantes</h3>
+      <h3 style="margin-top: 10px;">Déclinaisons Mobiles (375 px) correspondantes</h3>
       <div class="grid-3">
-        <div class="figure-box" style="text-align: center;">
-          <img src="${imgMobileExplorer}" alt="Catalogue Mobile" style="height: 135px; width: auto; margin: 0 auto;">
+        <div class="figure-box" style="text-align: center; background: #FFFFFF;">
+          <div class="mobile-frame">
+            <img src="${imgMobileExplorer}" alt="Catalogue Mobile" style="height: 110px; width: auto; object-fit: contain;">
+          </div>
           <div class="figure-caption">Figure 7.a : Catalogue (375 px)</div>
         </div>
-        <div class="figure-box" style="text-align: center;">
-          <img src="${imgMobileReservation}" alt="Réservation Mobile" style="height: 135px; width: auto; margin: 0 auto;">
+        <div class="figure-box" style="text-align: center; background: #FFFFFF;">
+          <div class="mobile-frame">
+            <img src="${imgMobileReservation}" alt="Réservation Mobile" style="height: 110px; width: auto; object-fit: contain;">
+          </div>
           <div class="figure-caption">Figure 7.b : Réservation (375 px)</div>
         </div>
-        <div class="figure-box" style="text-align: center;">
-          <img src="${imgMobileConfirmation}" alt="Confirmation Mobile" style="height: 135px; width: auto; margin: 0 auto;">
+        <div class="figure-box" style="text-align: center; background: #FFFFFF;">
+          <div class="mobile-frame">
+            <img src="${imgMobileConfirmation}" alt="Confirmation Mobile" style="height: 110px; width: auto; object-fit: contain;">
+          </div>
           <div class="figure-caption">Figure 7.c : Confirmation (375 px)</div>
         </div>
       </div>
@@ -632,15 +661,15 @@ const htmlContent = `<!DOCTYPE html>
 
       <div class="grid-3">
         <div class="figure-box">
-          <img src="${imgStorybookBadge}" alt="Storybook EcoBadge" style="height: 145px;">
+          <img src="${imgStorybookBadge}" alt="Storybook EcoBadge" style="max-height: 130px; width: auto; max-width: 100%; object-fit: contain;">
           <div class="figure-caption">Figure 8.a : EcoBadge (SASS Module, boucle)</div>
         </div>
         <div class="figure-box">
-          <img src="${imgStorybookButton}" alt="Storybook Button" style="height: 145px;">
+          <img src="${imgStorybookButton}" alt="Storybook Button" style="max-height: 130px; width: auto; max-width: 100%; object-fit: contain;">
           <div class="figure-caption">Figure 8.b : Button (variantes, loading, disabled)</div>
         </div>
         <div class="figure-box">
-          <img src="${imgStorybookCard}" alt="Storybook Card" style="height: 145px;">
+          <img src="${imgStorybookCard}" alt="Storybook Card" style="max-height: 130px; width: auto; max-width: 100%; object-fit: contain;">
           <div class="figure-caption">Figure 8.c : HebergementCard & Addon a11y</div>
         </div>
       </div>
