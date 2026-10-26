@@ -45,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentScreen, onNavigate }) => 
           type="button"
           onClick={() => handleNavClick('accueil')}
           className="group flex items-center gap-3 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest-700 rounded-lg p-1"
-          aria-label="Bivouac Sauvage - Retour à l'accueil"
+          aria-label="BIVOUAC SAUVAGE Montagne de Reims, retour à l'accueil"
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-forest-700 text-surface-ground shadow-sm transition-transform group-hover:scale-105">
             <Tent className="w-5 h-5 text-accent-400 stroke-[2.2]" aria-hidden="true" />

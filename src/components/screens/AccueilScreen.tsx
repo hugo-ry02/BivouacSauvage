@@ -158,7 +158,7 @@ export const AccueilScreen: React.FC<AccueilScreenProps> = ({
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
-            <div className="text-xs font-bold text-accent-600 uppercase tracking-wider">
+            <div className="text-xs font-bold text-accent-700 uppercase tracking-wider">
               Sélection du moment
             </div>
             <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-forest-950 mt-1">
@@ -201,7 +201,7 @@ export const AccueilScreen: React.FC<AccueilScreenProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <blockquote className="rounded-2xl bg-forest-800/70 border border-forest-700/60 p-6 flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-1 text-amber-400 mb-3" aria-label="Note : 5 sur 5">
+                <div role="img" className="flex items-center gap-1 text-amber-400 mb-3" aria-label="Note : 5 sur 5">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-amber-400" aria-hidden="true" />
                   ))}
@@ -218,7 +218,7 @@ export const AccueilScreen: React.FC<AccueilScreenProps> = ({
 
             <blockquote className="rounded-2xl bg-forest-800/70 border border-forest-700/60 p-6 flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-1 text-amber-400 mb-3" aria-label="Note : 5 sur 5">
+                <div role="img" className="flex items-center gap-1 text-amber-400 mb-3" aria-label="Note : 5 sur 5">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-amber-400" aria-hidden="true" />
                   ))}
