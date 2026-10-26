@@ -12,33 +12,24 @@
     <link rel="canonical" href="https://bivouac-sauvage.vercel.app/" />
     <meta name="theme-color" content="#2D5A43" />
 
-    <!-- Preconnect aux origines critiques -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
-
-    <!-- Preload de l'image LCP la plus importante du site -->
+    <!-- Preload immédiat de l'image LCP locale -->
     <link
       rel="preload"
       as="image"
-      href="https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=800&q=75&fm=webp"
+      href="/hero.webp"
+      type="image/webp"
       fetchpriority="high"
     />
 
-    <!-- Polices optimisées non bloquantes -->
+    <!-- Preconnect aux polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Polices optimisées avec font-display swap -->
     <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
     />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
   </head>
   <body class="bg-[#F9F8F5] text-[#1A241E] antialiased">
     <div id="root"></div>

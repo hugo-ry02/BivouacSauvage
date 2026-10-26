@@ -35,15 +35,9 @@ export const AccueilScreen: React.FC<AccueilScreenProps> = ({
         {/* Image de fond avec filtre sombre pour contraste WCAG AAA */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=800&q=75&fm=webp"
-            srcSet="
-              https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=640&q=75&fm=webp 640w,
-              https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1024&q=75&fm=webp 1024w,
-              https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1400&q=75&fm=webp 1400w
-            "
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1400px"
-            width="1400"
-            height="700"
+            src="/hero.webp"
+            width="800"
+            height="450"
             fetchPriority="high"
             decoding="async"
             alt="Vue panoramique de la forêt de la Montagne de Reims au crépuscule"
